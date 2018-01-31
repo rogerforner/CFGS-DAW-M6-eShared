@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <button type="button" class="mt-5 btn-info"name="button">
+    <button id="eboto"type="button" class="mt-5 btn-info"name="button" onclick="ratoliSobre()">
       <h2>FREEEEEEEEE!</h2>
       <div class="container">
         <div class="row">

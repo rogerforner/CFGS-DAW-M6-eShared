@@ -28960,6 +28960,9 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 //# sourceMappingURL=axios.map
 
+function ratoliSobre (){
+  alert("HOLA");
+}
 
 
 
