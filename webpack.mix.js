@@ -17,6 +17,9 @@ mix.scripts([
     'node_modules/bootstrap/dist/js/bootstrap.js',
     'node_modules/vue/dist/vue.js',
     'node_modules/axios/dist/axios.js',
+    'resources/assets/js/team_adria.js',
+    'resources/assets/js/team_enric.js',
+    'resources/assets/js/team_roger.js',
     'resources/assets/js/app.js',
   ], 'public/js/app.js')
   .sass('resources/assets/sass/app.scss', 'public/css');
