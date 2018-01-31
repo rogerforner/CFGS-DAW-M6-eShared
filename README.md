@@ -5,15 +5,10 @@
 $ git clone git@github.com:rogerforner/WebsAlPunt_eShared.git
 ```
 
-### Composer
+### Instal·lar dependències
 
 ```
 $ composer install
-```
-
-### npm
-
-```
 $ npm install
 ```
 
@@ -59,6 +54,12 @@ l'autenticació dels usuaris:
 
 ```
 $ php artisan make:auth
+```
+
+### Generar clau de l'Alpicació
+
+```
+$ php artisan key:generate
 ```
 
 ## Treballant amb Laravel
