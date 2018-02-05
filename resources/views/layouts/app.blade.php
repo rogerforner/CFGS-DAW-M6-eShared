@@ -10,28 +10,22 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-<<<<<<< HEAD
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-=======
-  <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-  <!-- Scripts -->
-  <script>
-      window.Laravel = {!! json_encode([
-          'csrfToken' => csrf_token(),
-      ]) !!};
-  </script>
->>>>>>> a8eb20b04a34b1f0e4f31f4794f487239c17f615
 </head>
-<body>
+
+@if (Route::currentRouteName()=="home")
+  <body onload="onload()">
+  @else
+  <body>
+@endif
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
     <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
@@ -73,13 +67,24 @@
 <div class="container">
   @yield('content')
 </div>
-
+<footer style="bottom:0; position:absolute; width:100%;"class="bg-dark text-white mt-4">
+    <div class="container-fluid py-3">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Cookies</h5></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3 text-right small align-self-end">©2018 eShared, Inc.</div>
+        </div>
+    </div>
+</footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-<<<<<<< HEAD
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.4/umd/popper.min.js"></script>
-=======
->>>>>>> a8eb20b04a34b1f0e4f31f4794f487239c17f615
-</body>
+  </body>
 </html>
