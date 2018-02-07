@@ -11,18 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rutes entrega Àlex
 Route::get('/enric', function () {
-    return view('enric');
+  return view('entrega.enric');
 });
+
 Route::get('/roger', function () {
-    return view('roger');
+  return view('entrega.roger');
 });
+Route::get('/contactar', function () {
+  return view('entrega.contactar');
+});
+
 Route::get('/adria', function () {
-    return view('adria');
+  return view('entrega.adria');
 });
+// ---------------------------------------
 
 Auth::routes();
 

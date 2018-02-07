@@ -29474,6 +29474,39 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=axios.map
+/*********************************************************************** "ÍNDEX"
+Iniciar els components de plugins que estiguem emprant.
+
+# Twitter Bootstrap
+## Tooltips
+# Editor de text
+## Summernote
+*******************************************************************************/
+$(function () {
+  /*
+  # Twitter Bootstrap
+  --------------------------------------------------------------------------- */
+  /*
+  ## Tooltips
+  --------------------------------------------------------------------------- */
+  $('[data-toggle="tooltip"]').tooltip()
+
+
+  /*
+  # Editor de text
+  --------------------------------------------------------------------------- */
+  /*
+  ## Summernote
+  --------------------------------------------------------------------------- */
+  $('textarea#summernote').summernote({
+    placeholder: 'Començar a publicar a eShared',
+    tabsize: 2,
+    height: 350,
+    lang: 'ca-ES'
+  });
+
+});
+
 
   function ratoliSobre (){
     alert("HOLA");
@@ -29528,29 +29561,41 @@ function checkCookie() {
     trigger: 'hover'
   });
 
+/*********************************************************************** "ÍNDEX"
+# Pàgina de Publicació
+## Validar formulari
+## Buscar paraula (Regex)
+# Pàgina de Contacte
+# FUNCIONS
+*******************************************************************************/
 $( document ).ready(function() {
+  /*
+  # Pàgina de Publicació
+  --------------------------------------------------------------------------- */
+  /*
+  ## Validar formulari
+  --------------------------------------------------------------------------- */
+  // Mirar FUNCIONS -> validaFormulari()
 
+  /*
+  ## Buscar paraula (Regex)
+  --------------------------------------------------------------------------- */
+
+
+  /*
+  # Pàgina de Contacte
+  --------------------------------------------------------------------------- */
 });
 
+/*
+# FUNCIONS
+*******************************************************************************/
+function validaFormulari() {
+  var titol = document.getElementById("inputTitol");
+  var cos   = document.getElementById("inputCos");
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+  if (titol == null || titol.length == 0 || /^\s+$/.test(titol)) {
+    alert("[ERROR] El camp títol és obligatori i no pot tenir menys de 70 caràcters.");
 
-require('./bootstrap');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+  }
+}
