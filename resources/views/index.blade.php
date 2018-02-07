@@ -1,7 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <body onload="onload()">
+  <style>
+    header {
+      background-image: url("img/capçalera.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 300px;
+    }
+  </style>
+  <!-- ENCAPÇALAMENT DE LA PÀGINA WEB -->
+  <header class="parallax shadow-all-3i" id="splash">
+
+  </header>
+    <div class="container">
 
 
       <div id="card" onclick="free()"style="height:150px"class="mb-5 mt-5">
@@ -77,5 +90,5 @@
           </table>
         </div>
       </div>
-</body>
+</div>
 @endsection

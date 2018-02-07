@@ -12,8 +12,8 @@
 */
 
 // Rutes entrega Àlex
-Route::get('/enric', function () {
-  return view('entrega.enric');
+Route::get('/', function () {
+    return view('index');
 });
 
 Route::get('/roger', function () {
@@ -29,5 +29,3 @@ Route::get('/adria', function () {
 // ---------------------------------------
 
 Auth::routes();
-
-Route::get('/', 'HomeController@index')->name('home');
