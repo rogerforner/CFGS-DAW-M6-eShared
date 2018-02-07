@@ -14,11 +14,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-secondary">
     <div id="app">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-          <a class="navbar-brand" href="#">{{ config('app.name', 'eShared') }}</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" id="nom" href="#">{{ config('app.name', 'eShared') }}</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
