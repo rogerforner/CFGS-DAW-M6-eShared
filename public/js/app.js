@@ -29591,7 +29591,7 @@ $( document ).ready(function() {
 # FUNCIONS
 *******************************************************************************/
 function validaFormulari() {
-  var titol = document.getElementById("inputTitol");
+  var titol = document.getElementById("inputTitol").value;
   var cos   = document.getElementById("inputCos");
 
   if (titol == null || titol.length == 0 || /^\s+$/.test(titol)) {
