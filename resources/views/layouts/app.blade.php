@@ -87,7 +87,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <p class="py-4 my-0">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2018 Ice Cream Monstià. Tots els drets reservats.</p>
+            <p class="py-4 my-0">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2018 {{ config('app.name', 'eShared') }}. Tots els drets reservats.</p>
           </div>
         </div>
       </div>

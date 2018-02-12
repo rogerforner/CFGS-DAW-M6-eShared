@@ -13,12 +13,17 @@
 
             <div class="form-group">
               <label for="inputSubtitol">Subtítol</label>
-              <input type="text" class="form-control a" name="subtitol" onblur="nocoloret()"onfocus="coloret();"id="inputSubtitol">
+              <input type="text" class="form-control a" name="subtitol" onblur="nocoloret()" onfocus="coloret();" id="inputSubtitol">
             </div>
 
             <div class="form-group">
               <label for="inputCos">Cos</label>
               <textarea id="summernote" class="form-control" name="cos"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail">Correu electrònic</label>
+              <input type="text" class="form-control" name="email" id="inputEmail">
             </div>
 
             <button type="button" class="btn btn-primary" onclick="return validaFormulari()">Publicar</button>
@@ -50,4 +55,42 @@
       </div><!-- /.col -->
     </div><!-- /.row -->
 </div><!-- /.container -->
+
+<script type="text/javascript">
+function validaFormulari() {
+  // Obtenir valors dels camps.
+  var titol = $('#inputTitol').val();
+  var cos   = $('textarea#summernote').val().replace(/<[^>]*>/g, '');
+  var email = $('#inputEmail').val();
+
+  // Si el títol està buit o està format per menys de 70 caràcters, no permetem
+  // que es dugui a terme el sumbmit i, a més a més, avisem que s'ha d'emplenar.
+  if (titol == null || titol.length <= 70 || /^\s+$/.test(titol)) {
+    alert('[ERROR] El camp títol és obligatori i no pot tenir menys de 70 caràcters.');
+    return false;
+  }
+
+  // Si el títol està buit, no permetem que es dugui a terme el sumbmit i, a més
+  // a més, avisem que s'ha d'emplenar.
+  if (cos == null || cos.length == 0 || /^\s+$/.test(cos)) {
+    alert('[ERROR] El cos és obligatori i no pot estar buit.');
+    return false;
+  }
+
+  // Validar el correu electrònic.
+  var esEmail = validaEmail(email);
+  if (esEmail == false) {
+    alert('[ERROR] No has inserit un correu electrònic.');
+    return false;
+  }
+}
+
+/*
+## Validar eMail
+----------------------------------------------------------------------------- */
+function validaEmail(email) {
+  var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(email);
+}
+</script>
 @endsection
