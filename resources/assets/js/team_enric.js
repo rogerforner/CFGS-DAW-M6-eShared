@@ -50,3 +50,8 @@ function checkCookie() {
     axis: 'x',
     trigger: 'hover'
   });
+
+
+  function anima() {
+    $( '#anima' ).addClass( "animation-target" );
+  }

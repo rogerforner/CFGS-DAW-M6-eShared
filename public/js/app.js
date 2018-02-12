@@ -29561,6 +29561,11 @@ function checkCookie() {
     trigger: 'hover'
   });
 
+
+  function anima() {
+    $( '#anima' ).addClass( "animation-target" );
+  }
+
 /*********************************************************************** "ÍNDEX"
 # Pàgina de Publicació
 ## Validar formulari

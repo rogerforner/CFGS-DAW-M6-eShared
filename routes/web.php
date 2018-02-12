@@ -26,6 +26,10 @@ Route::get('/contactar', function () {
 Route::get('/adria', function () {
   return view('entrega.adria');
 });
+
+Route::get('/enric', function () {
+  return view('enviarCorreu');
+});
 // ---------------------------------------
 
 Auth::routes();
