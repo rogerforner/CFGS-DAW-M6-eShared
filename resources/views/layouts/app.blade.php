@@ -75,7 +75,9 @@
         </nav>
         @yield('content')
     </div>
-
+    <footer style="background-color:indigo;">
+      <br><br>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
