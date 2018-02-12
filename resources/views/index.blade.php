@@ -25,7 +25,7 @@
           <h2 style="margin-left: auto;margin-right:auto;">FREE!</h2>
         </div>
         <div class="row ">
-          <p style="margin-left: auto;margin-right:auto;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br>labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
+          <p class="text-truncate"style="margin-left: auto;margin-right:auto;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br>labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
         </div>
       </div>
       <div class="back">
@@ -60,7 +60,7 @@
           <h2 style="margin-left: auto;margin-right:auto;">PRO!</h2>
         </div>
         <div class="row ">
-          <p style="margin-left: auto;margin-right:auto;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br>labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
+          <p class="text-truncate"style="margin-left: auto;margin-right:auto;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br>labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco <br>laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in </p>
         </div>
       </div>
       <div class="back">
