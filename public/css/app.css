@@ -5,21 +5,25 @@
 *::-moz-selection {
   /* Code for Firefox */
   color: #fff;
-  background: #ff9eb9;
+  background: #2d728f;
 }
 
 *::selection {
   color: #fff;
-  background: #ff9eb9;
+  background: #2d728f;
 }
 
 .bg-cream {
-  background-color: #ff9eb9;
+  background-color: #2d728f;
 }
 
 .bg-cream-dark {
-  background-color: #ff386f;
+  background-color: #153441;
   color: #fff;
+}
+
+mark {
+  background-color: #ffc107 !important;
 }
 
 /*!
@@ -55,7 +59,7 @@
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #868e96;
-  --cream: #ff9eb9;
+  --cream: #2d728f;
   --primary: #2d728f;
   --secondary: #f5ee9e;
   --success: #28a745;

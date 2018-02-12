@@ -37,7 +37,7 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 /* Mis colores */
-$cream: #ff9eb9 !default;
+$cream: #2d728f !default;
 
 $colors: (
   blue:      $blue,
@@ -93,4 +93,10 @@ $theme-color-interval: 8% !default;
 .bg-cream-dark {
   background-color: darken($cream, 20%);
   color: $white;
+}
+
+//# Color del subratllat
+//# ---------------------------------------------------------------------
+mark {
+  background-color: $yellow !important;
 }

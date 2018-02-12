@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container my-5">
     <div class="row">
       <div class="col-md-8">
-        <div class="card">
+        <div class="card shadow-3">
           <form class="card-body">
             <div class="form-group">
               <label for="inputTitol">Títol</label>
@@ -18,7 +18,7 @@
 
             <div class="form-group">
               <label for="inputCos">Cos</label>
-              <textarea id="summernote" class="form-control" name="cos" id="inputCos"></textarea>
+              <textarea id="summernote" class="form-control" name="cos"></textarea>
             </div>
 
             <button type="button" class="btn btn-primary" onclick="return validaFormulari()">Publicar</button>
@@ -27,16 +27,21 @@
       </div><!-- /.col -->
 
       <div class="col-md-4">
-        <div class="card">
+        <div class="card shadow-3">
           <div class="card-body">
             <h5 class="card-title">Sinonimator</h5>
             <h6 class="card-subtitle mb-2 text-muted">No et repeteixis</h6>
 
-            <p class="card-text text-justify"><strong>Repeteixes constantment una paraula?</strong><br>
-              <em>Escriu una paraula que sols repetir molt i si hi és al text la <mark>marcarem</mark> per tal de que puguis veure quants cops l'has repetit.</em></p>
+            <p class="card-text"><strong>Repeteixes constantment alguna paraula?</strong><br>
+              <em>Escriu aquella paraula que sols repetir molt i, si hi és al text, la <mark>marcarem</mark> per tal de que les puguis trobar fàcilment i substituir-la per un sinònim.</em></p>
 
             <form class="my-2">
-              <input type="text" class="form-control" name="buscaParaula">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="numParaules">0</span>
+                </div>
+                <input type="text" class="form-control" oninput="buscarParaula()" id="buscaParaula">
+              </div>
             </form>
 
             <a href="https://www.softcatala.org/diccionari-de-sinonims/" target="_blank" class="card-link">Buscar sinònims</a>
