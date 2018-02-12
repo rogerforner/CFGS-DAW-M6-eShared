@@ -38,7 +38,7 @@ function checkCookie() {
     if (user != "") {
         window.location.replace("login");
     } else {
-      
+
     }
 }
 
@@ -67,4 +67,10 @@ function checkCookie() {
   }
   function anima() {
     $( '#anima' ).addClass( "animation-target" );
+  }
+  function enricdown(){
+    alert("No hi ha cap input meló");
+  }
+  function enricup(){
+    alert("Aixi m'agrada fuix samaruc");
   }

@@ -8,12 +8,16 @@
           <form class="card-body">
             <div class="form-group">
               <label for="inputTitol">Títol</label>
-              <input type="text" class="form-control a" name="titol"onblur="nocoloret1()"onfocus="coloret1();" id="inputTitol">
+              <input type="text" class="form-control a" name="titol"onkeyup="enricup();"onblur="nocoloret1()"onfocus="coloret1();" id="inputTitol">
             </div>
 
             <div class="form-group">
               <label for="inputSubtitol">Subtítol</label>
+<<<<<<< HEAD
               <input type="text" class="form-control a" name="subtitol" onblur="nocoloret()" onfocus="coloret();" id="inputSubtitol">
+=======
+              <input type="text" class="form-control a" name="subtitol" onkeydown="enricdown();" onblur="nocoloret()"onfocus="coloret();"id="inputSubtitol">
+>>>>>>> 94b625e4436fef58f1d8363f81b7f2ad7133b433
             </div>
 
             <div class="form-group">
