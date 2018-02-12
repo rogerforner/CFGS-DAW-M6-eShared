@@ -14,7 +14,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
 </head>
+@if (Request::path()=='home')
+<body onload="onload();"class="bg-secondary">
+@elseif (Request::path()=='/')
+<body class="bg-secondary" onload="checkCookie();">
+@else
 <body class="bg-secondary">
+@endif
+
     <div id="app">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -75,8 +82,15 @@
         </nav>
         @yield('content')
     </div>
-    <footer style="background-color:indigo;">
-      <br><br>
+    <!-- PEU DE PÀGINA -->
+    <footer class="bg-cream-dark h-25">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p class="py-4 my-0">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2018 Ice Cream Monstià. Tots els drets reservats.</p>
+          </div>
+        </div>
+      </div>
     </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

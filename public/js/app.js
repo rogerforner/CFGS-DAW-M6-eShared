@@ -29518,7 +29518,7 @@ $(function () {
     window.location.replace("http://stackoverflow.com");
   }
   function onload(){
-    checkCookie();
+    setCookie("username","eShared",1);
   }
   function setCookie(cname,cvalue,exdays) {
     var d = new Date();
@@ -29548,7 +29548,7 @@ function checkCookie() {
     if (user != "") {
         window.location.replace("login");
     } else {
-      setCookie("username","titoleta",1);
+      
     }
 }
 
@@ -29560,8 +29560,21 @@ function checkCookie() {
     axis: 'x',
     trigger: 'hover'
   });
+  function nocoloret1(){
+    document.getElementById("inputTitol").style.backgroundColor = "white";
+  }
 
+  function coloret1(){
+    document.getElementById("inputTitol").style.backgroundColor = "lightblue";
+  }
 
+  function nocoloret(){
+    document.getElementById("inputSubtitol").style.backgroundColor = "white";
+  }
+
+  function coloret(){
+    document.getElementById("inputSubtitol").style.backgroundColor = "lightblue";
+  }
   function anima() {
     $( '#anima' ).addClass( "animation-target" );
   }
