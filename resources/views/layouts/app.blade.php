@@ -13,6 +13,30 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#eaf7f7",
+          "text": "#5c7291"
+        },
+        "button": {
+          "background": "#56cbdb",
+          "text": "#ffffff"
+        }
+      },
+      "content": {
+        "message": "Aquest lloc web empra cookies. Si segueixes navegant les estaràs acceptant.",
+        "dismiss": "Ok!",
+        "link": "Saber més",
+        "href": "{{ url('adria') }}"
+      }
+    })});
+    </script>
 </head>
 @if (Request::path()=='home')
 <body onload="onload();"class="bg-secondary">
@@ -25,7 +49,7 @@
     <div id="app">
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a class="navbar-brand" id="nom" href="#">{{ config('app.name', 'eShared') }}</a>
+          <a class="navbar-brand" id="nom" href="{{ url('/') }}">{{ config('app.name', 'eShared') }}</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -33,16 +57,13 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <!-- ESQUERRA -->
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Inici <span class="sr-only">(actual)</span></a>
-              </li>
               {{-- Provisional --}}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Maquetació Web (entrega)
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ url('enric') }}">Enric</a>
+                  <a class="dropdown-item" href="{{ url('/') }}">Enric</a>
                   <a class="dropdown-item" href="{{ url('adria') }}">Adrià</a>
                   <a class="dropdown-item" href="{{ url('roger') }}">Roger</a>
                   <div class="dropdown-divider"></div>
