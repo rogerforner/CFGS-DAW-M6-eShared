@@ -19,7 +19,7 @@
   <div class="col-2">
   </div>
   <div class="col-8">
-    <div id="card" onclick="free()"style="height:150px;width:100%;"class="mb-5 mt-5">
+    <div id="card" ondbclick="free()"style="height:150px;width:100%;"class="mb-5 mt-5">
       <div class="front btn btn-info " >
         <div class="row">
           <h2 style="margin-left: auto;margin-right:auto;">FREE!</h2>
