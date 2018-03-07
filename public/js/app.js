@@ -29498,12 +29498,7 @@ $(function () {
   /*
   ## Summernote
   --------------------------------------------------------------------------- */
-  $('textarea#summernote').summernote({
-    placeholder: 'Començar a publicar a eShared',
-    tabsize: 2,
-    height: 350,
-    lang: 'ca-ES'
-  });
+
 
 });
 

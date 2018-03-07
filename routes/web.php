@@ -45,4 +45,10 @@ Route::name('ruta_eliminar_category')->get('/category/{category}/delete', 'Categ
 
 Route::name('ruta_categories')->get('/categories', 'CategoriesController@index');
 
+//RUTES PER A NOTES
+Route::group(['prefix' => 'user'], function() {
+
+    Route::resource('notes','NotesController');
+});
+
 Auth::routes();
