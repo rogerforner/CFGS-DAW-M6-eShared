@@ -7,7 +7,7 @@
   {{csrf_field()}}
   <div class="form-group">
     <label for="nom">Nom dels apunts:</label>
-    <input type="text" name="nom" class="form-control"value="{{$nota->nom or old('nom')}}">
+    <input type="text" name="nom" class="form-control"value="{{$note->nom or old('nom')}}">
   </div>
   <label for="categoria">Camps d'estudi:</label>
   <div class="form-group " style="    display: -webkit-box;">
@@ -27,7 +27,7 @@
     <span class="col-1"data-toggle="tooltip" data-placement="right" title="Has d'escullir una categoria" ><i class="fas fa-question " ></i></span>
   </div>
   <label for="cos">Cos dels apunts:</label>
-  <textarea value="{{old('description')}}" class="form-control editor mb-2" name="note" rows="10" cols="50"></textarea>
+  <textarea class="form-control editor mb-2" name="note" rows="10" cols="50">{!! $note->note or old('note') !!}</textarea>
     <button type="submit" class="btn btn-primary my-3">
       Desar apunts
     </button>

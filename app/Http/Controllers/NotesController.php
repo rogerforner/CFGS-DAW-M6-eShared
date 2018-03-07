@@ -52,7 +52,7 @@ class NotesController extends Controller
 
       session()->flash('misatge','Nota creada!'); //Flash perque un cop creat es eliminat
 
-      return redirect()->route('ruta_categories');
+      return redirect()->route('user.notes');
     }
 
     /**
@@ -64,7 +64,7 @@ class NotesController extends Controller
     public function show($id)
     {
         $note = Note::find($id);
-        
+
         return view('user.notes.show')->with(['note'=>$note]);
     }
 
@@ -76,7 +76,10 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $note=Note::find($id);
+      $categories= Category::where('pare','=',NULL)->get();
+
+      return view('user.notes.edit')->with(['note'=>$note,'categories'=>$categories]);
     }
 
     /**
@@ -88,7 +91,17 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $inputs=$request->only('nom','idcategory','idusuari','note');
+
+      $nota=Note::find($id);
+
+      $nota->update(
+        $inputs
+      );
+
+      session()->flash('misatge','Apunts actualitzats!'); //Flash perque un cop creat es eliminat
+
+      return redirect()->route('notes.show',['note'=>$nota->id])->with(['note'=>$nota]);
     }
 
     /**
@@ -99,6 +112,10 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Note::destroy($id);
+
+      session()->flash('misatge','Apunts eliminats!'); //Flash perque un cop creat es eliminat
+
+      return redirect()->route('notes.index');
     }
 }
