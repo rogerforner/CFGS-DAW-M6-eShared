@@ -15,9 +15,7 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/home', function () {
-    return view('home');
-});
+ Route::name('home')->get('/home', 'DashboardController@index');
 Route::get('/roger', function () {
   return view('entrega.roger');
 });
@@ -33,6 +31,7 @@ Route::get('/enric', function () {
   return view('enviarCorreu');
 });
 // ---------------------------------------
+ Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
 Route::name('ruta_crear_categoria')->get('/category/create', 'CategoriesController@create');
 /*CREAR UN PRODUCTE*/
 Route::name('ruta_guardar_category')->post('/category', 'CategoriesController@store');
@@ -50,5 +49,5 @@ Route::group(['prefix' => 'user'], function() {
 
     Route::resource('notes','NotesController');
 });
-
+Route::post('user/notes/{id}/rating', 'NotesController@puntuar')->name('puntuar');
 Auth::routes();

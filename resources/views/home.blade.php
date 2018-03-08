@@ -2,9 +2,19 @@
 
 @section('content')
 
-  <div class="container">
+  <div class="container col-12">
       <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+        <div class="col-2 bg-white mr-5">
+
+          <ul class="mt-4">
+          @forelse ($categories as $category)
+              <li><a href='{{route("ruta_show_categoria",['id' => $category->id])}}'>{{$category->nom}}</a></li>
+          @empty
+
+          @endforelse
+        </ul>
+        </div>
+          <div class="col-md-8">
               <div class="panel panel-default">
                   <div class="panel-heading">Dashboard</div>
 
@@ -18,6 +28,9 @@
                       You are logged in!
                   </div>
               </div>
+          </div>
+          <div class="col-md-2">
+
           </div>
       </div>
   </div>

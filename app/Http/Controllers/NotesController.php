@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Note;
+use \willvincent\Rateable\Rating;
 
 class NotesController extends Controller
 {
@@ -47,12 +48,17 @@ class NotesController extends Controller
     public function store(Request $request)
     {
       $inputs=$request->all();
+      $rating = new \willvincent\Rateable\Rating;
+      $rating->rating = 5;
+      //$rating->rating = $request->rate;
+      //dd($rating->rating);
+      $rating->user_id = auth()->user()->id;
 
-      Note::create($inputs);
-
+      $note=Note::create($inputs);
+      $note->ratings()->save($rating);
       session()->flash('misatge','Nota creada!'); //Flash perque un cop creat es eliminat
 
-      return redirect()->route('user.notes');
+      return redirect()->route('notes.index');
     }
 
     /**
@@ -81,7 +87,20 @@ class NotesController extends Controller
 
       return view('user.notes.edit')->with(['note'=>$note,'categories'=>$categories]);
     }
+    public function puntuar($id,$noteid)
+    {
+      $note=Note::find($id);
+      $rating = new Rating;
+      dd('hola');
+      if(Rating::where('user_id','=',auth()->user()->id)->get()==NULL){
+        $rating->rating = $request->input('star');
+        $rating->user_id = auth()->user()->id;
+        $note->ratings()->save($rating);
+        return view('user.notes.show')->with(['note'=>$note]);
+      }
 
+      return view('user.notes.show')->with(['note'=>$note]);
+    }
     /**
      * Update the specified resource in storage.
      *

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Category;
+use App\Note;
 
 use Illuminate\Http\Request;
 
@@ -64,7 +65,10 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-      //
+      $category=Category::find($id)->get()->first();
+      $notes=Note::where('idcategoria','=',$id)->get();
+      //dd($category);
+      return view('user.categories.index')->with(['category'=>$category,'notes'=>$notes]);
     }
 
     /**
@@ -76,6 +80,7 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category=Category::find($id);
+
         $parent=Category::where('pare','=',NULL)->get();
         return view('admin.categories.edit')->with(['category'=>$category,'categories'=>$parent]);
     }
