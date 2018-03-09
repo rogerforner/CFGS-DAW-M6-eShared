@@ -7,12 +7,12 @@
   {{csrf_field()}}
   <div class="form-group">
     <label for="nom">Nom dels apunts:</label>
-    <input type="text" name="nom" class="form-control"value="{{$note->nom or old('nom')}}">
+    <input type="text" name="nom" required class="form-control"value="{{$note->nom or old('nom')}}">
   </div>
   <label for="categoria">Camps d'estudi:</label>
   <div class="form-group " style="    display: -webkit-box;">
     <input type="hidden" name="idusuari" value="{{Auth::user()->id}}">
-    <select class="form-control" name="idcategoria">
+    <select class="form-control" name="idcategoria required">
       <option value="">--------</option>
       @forelse ($categories as $category1)
           <option type="checkbox" name="idcategoria" value="{{$category1->id}}"
@@ -27,7 +27,7 @@
     <span class="col-1"data-toggle="tooltip" data-placement="right" title="Has d'escullir una categoria" ><i class="fas fa-question " ></i></span>
   </div>
   <label for="cos">Cos dels apunts:</label>
-  <textarea class="form-control editor mb-2" name="note" rows="10" cols="50">{!! $note->note or old('note') !!}</textarea>
+  <textarea required class="form-control editor mb-2" name="note" rows="10" cols="50">{!! $note->note or old('note') !!}</textarea>
     <button type="submit" class="btn btn-primary my-3">
       Desar apunts
     </button>

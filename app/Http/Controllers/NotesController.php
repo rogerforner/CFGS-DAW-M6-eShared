@@ -87,19 +87,21 @@ class NotesController extends Controller
 
       return view('user.notes.edit')->with(['note'=>$note,'categories'=>$categories]);
     }
-    public function puntuar($id,$noteid)
+    public function puntuar(Request $request,$id)
     {
       $note=Note::find($id);
       $rating = new Rating;
-      dd('hola');
-      if(Rating::where('user_id','=',auth()->user()->id)->get()==NULL){
+      $category=Category::where('id',$note->idcategoria)->get();
+      $r=Rating::where('user_id','=',auth()->user()->id)->where('rateable_id',$note->id)->count();
+
+      if($r==0){
         $rating->rating = $request->input('star');
         $rating->user_id = auth()->user()->id;
         $note->ratings()->save($rating);
         return view('user.notes.show')->with(['note'=>$note]);
       }
 
-      return view('user.notes.show')->with(['note'=>$note]);
+      return view('user.notes.show')->with(['note'=>$note,'category'=>$category]);
     }
     /**
      * Update the specified resource in storage.
@@ -132,9 +134,9 @@ class NotesController extends Controller
     public function destroy($id)
     {
       Note::destroy($id);
-
+      
       session()->flash('misatge','Apunts eliminats!'); //Flash perque un cop creat es eliminat
 
-      return redirect()->route('notes.index');
+      return redirect()->route('home');
     }
 }

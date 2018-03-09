@@ -16,7 +16,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/bootstrap-rating-input.js') }}"></script>
-    <link href="  " rel="stylesheet">
+    <link href="{{ asset('css/bsadmin.css') }}  " rel="stylesheet">
 
 <script src="{{asset('js/bootstrap-rating-input.min.js')}}"></script>
     <!-- cookie consent -->
@@ -121,5 +121,6 @@
     </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bsadmin.js') }}"></script>
 </body>
 </html>

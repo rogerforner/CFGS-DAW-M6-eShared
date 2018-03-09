@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Note;
+use App\User;
+use Auth;
 use \willvincent\Rateable\Rating;
 
 class DashboardController extends Controller
@@ -17,8 +19,10 @@ class DashboardController extends Controller
     public function index()
     {
       $categories= Category::where('pare','=',NULL)->get();
+      $user=Auth::user();
+      $notes=Note::where('idusuari','=',$user->id)->get();
 
-      return view('home')->with(['categories'=>$categories]);
+      return view('home')->with(['categories'=>$categories,'notes'=>$notes]);
     }
 
     /**

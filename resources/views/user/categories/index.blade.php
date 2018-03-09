@@ -6,15 +6,13 @@
   </div>
   <div class="col-8">
     <div class="mt-4 row">
-      <h2>Apunts</h2>
+      <h1>Apunts {{$category->nom}}</h1>
     </div>
     <div class="row">
       <div class="col-12 my-5 img-thumbnail">
-
-          <h3>{{$category->nom}}</h3>
             @foreach ($notes as $note)
               <div class="col-0">
-                <h5>{{$note->nom}}</h5>
+                <h5><a href="{{route('notes.show',['id'=>$note->id,'category'=>$category])}}">{{$note->nom}}</a></h5>
               </div>
             @endforeach
 

@@ -7,7 +7,7 @@
   {{csrf_field()}}
   <div class="form-group">
     <label for="nom">Nom de la categoria:</label>
-    <input type="text" name="nom" class="form-control"value="{{$category->nom or old('nom')}}">
+    <input type="text" name="nom" class="form-control " required value="{{$category->nom or old('nom')}}">
   </div>
   <div class="form-group " style="    display: -webkit-box;">
     <select class="form-control" name="pare">
