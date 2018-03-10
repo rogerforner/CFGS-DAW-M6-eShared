@@ -69,7 +69,7 @@
           }
 
           tinymce.activeEditor.windowManager.open({
-            file: '<?= route('elfinder.tinymce4') ?>',// use an absolute path!
+            file: '/vendor/studio-42/elfinder/elfinder.html',// use an absolute path!
             title: 'File manager',
             width: 900,
             height: 450,
