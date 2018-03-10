@@ -64,9 +64,9 @@
             <!-- ESQUERRA -->
             <ul class="navbar-nav mr-auto">
               {{-- Provisional --}}
-              <li class="nav-item dropdown">
+              {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Maquetació Web (entrega)
+                  (entrega)
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ url('/') }}">Enric</a>
@@ -74,6 +74,15 @@
                   <a class="dropdown-item" href="{{ url('roger') }}">Roger</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ url('contactar') }}">Contactar</a>
+                </div>
+              </li> --}}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-users"></i> Usuaris
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ action('UserController@index') }}">Veure usuaris</a>
+                  <a class="dropdown-item" href="{{ action('UserController@create') }}">Crear usuari</a>
                 </div>
               </li>
             </ul>
