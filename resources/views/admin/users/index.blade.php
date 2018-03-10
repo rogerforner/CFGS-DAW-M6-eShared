@@ -7,6 +7,8 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
+          <h5 class="card-title">Llistat d'usuaris</h5>
+
           {{-- Taula d'usuaris --}}
           <table class="table table-hover mt-4">
             <thead class="bg-cream text-white">

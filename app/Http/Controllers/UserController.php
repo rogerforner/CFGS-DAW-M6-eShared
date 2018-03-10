@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -38,7 +48,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar dades obtingudes del formulari.
+        $data = $request->validate([
+            'name'      => 'required|string|max:255',
+            'email'     => 'required|string|email|max:255|unique:users',
+            'password'  => 'required|string|min:6|confirmed',
+        ]);
+
+        // Crear l'usuari (la validació ha sortit bé).
+        $user = User::create([
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'password' => bcrypt($data['password']) // Encriptat.
+        ]);
+
+        // TODO: Assignar rols.
+
+        // Vista on es llisten els usuaris.
+        return redirect()->action('UserController@index');
     }
 
     /**
