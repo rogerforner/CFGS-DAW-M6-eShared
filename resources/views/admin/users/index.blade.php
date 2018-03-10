@@ -9,6 +9,26 @@
         <div class="card-body">
           <h5 class="card-title">Llistat d'usuaris</h5>
 
+          {{-- Warning --}}
+          @if (session('warning'))
+            <div class="alert alert-warning alert-dismissible fade show">
+              {{ session('warning') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          @endif
+
+          {{-- Success --}}
+          @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show">
+              {{ session('success') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          @endif
+
           {{-- Taula d'usuaris --}}
           <table class="table table-hover mt-4">
             <thead class="bg-cream text-white">
@@ -41,6 +61,18 @@
                          data-toggle="tooltip" data-placement="top" title="Editar">
                         <i class="fas fa-edit"></i>
                       </a>
+                      {{-- Eliminar --}}
+                      <a class="btn btn-primary btn-sm" role="button" href="" data-tooltip="tooltip" data-placement="top" title="Eliminar"
+                         data-toggle="modal" data-target="#deleteUser-{{ $user->id }}">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                      @include('admin.users.partials.modal', [
+                        'id'      => $user->id,
+                        'name'    => $user->name,
+                        'email'   => $user->email,
+                        'created' => $user->created_at,
+                        'updated' => $user->updated_at
+                      ])
                     </div><!-- /.btn-group -->
                   </td>
                 </tr>

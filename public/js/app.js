@@ -29482,7 +29482,7 @@ Iniciar els components de plugins que estiguem emprant.
 # Editor de text
 ## Summernote
 *******************************************************************************/
-$(function () {
+$(function() {
   /*
   # Twitter Bootstrap
   --------------------------------------------------------------------------- */
@@ -29490,6 +29490,7 @@ $(function () {
   ## Tooltips
   --------------------------------------------------------------------------- */
   $('[data-toggle="tooltip"]').tooltip()
+  $('[data-tooltip="tooltip"]').tooltip()
 
 
   /*
@@ -29500,11 +29501,10 @@ $(function () {
   --------------------------------------------------------------------------- */
 
   $('#addStar').change('.star', function(e) {
-  $(this).submit();
+    $(this).submit();
   });
 
 });
-
 
   function ratoliSobre (){
     alert("HOLA");

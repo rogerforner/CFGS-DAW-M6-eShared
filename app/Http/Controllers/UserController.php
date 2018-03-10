@@ -149,6 +149,20 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Obtenir l'usuari.
+        $user = User::findOrFail($id);
+
+        // No permetem esborrar l'usuari amb id 1 (administrador)
+        if ($user->id === 1) {
+            // back() crea una redirecció a la última localització de l'usuari
+            // abans d'arribar aquí.
+            return back()->with('warning', 'No pots esborrar l\'usuari amb ID = 1.');
+        } else {
+            // Eliminar l'usuari.
+            $user->delete();
+
+            // Vista on es llisten els usuaris.
+            return back()->with('success', 'Usuari esborrat!');
+        }
     }
 }
