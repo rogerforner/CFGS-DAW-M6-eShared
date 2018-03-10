@@ -78,15 +78,11 @@
               </li>
             </ul>
             <!-- DRETA -->
-            <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
+            <ul class="navbar-nav ml-auto">
               <!-- Enllaços autenticació -->
               @guest
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}" data-toggle="tooltip" data-placement="bottom" title="Accedir"><i class="fas fa-sign-in-alt"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}" data-toggle="tooltip" data-placement="bottom" title="Registrar-se"><i class="fas fa-user-plus"></i></a>
-                </li>
+                <li><a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Accedir</a></li>
+                <li><a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Registrar-se</a></li>
               @else
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
