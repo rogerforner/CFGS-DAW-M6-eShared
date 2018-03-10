@@ -21,7 +21,7 @@
           @endif
 
           {{-- Formulari --}}
-          <form action="{{ action('UserController@index') }}" method="post">
+          <form action="{{ action('UserController@store') }}" method="post">
             {{ csrf_field() }}
             {{-- Usuari --}}
             <div class="form-group">
