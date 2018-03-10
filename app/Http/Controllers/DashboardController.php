@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
       $categories= Category::where('pare','=',NULL)->get();
       $user=Auth::user();
-      $notes=Note::where('idusuari','=',$user->id)->get();
+      $notes=Note::where('idusuari','=',$user->id)->orderby('id','desc')->paginate(10);
 
       return view('home')->with(['categories'=>$categories,'notes'=>$notes]);
     }

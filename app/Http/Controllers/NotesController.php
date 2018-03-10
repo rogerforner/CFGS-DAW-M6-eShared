@@ -58,7 +58,7 @@ class NotesController extends Controller
       $note->ratings()->save($rating);
       session()->flash('misatge','Nota creada!'); //Flash perque un cop creat es eliminat
 
-      return redirect()->route('notes.index');
+      return redirect()->route('home');
     }
 
     /**
@@ -134,7 +134,7 @@ class NotesController extends Controller
     public function destroy($id)
     {
       Note::destroy($id);
-      
+
       session()->flash('misatge','Apunts eliminats!'); //Flash perque un cop creat es eliminat
 
       return redirect()->route('home');

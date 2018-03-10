@@ -32,14 +32,15 @@
                 </div>
 
 
-            <div class="row">
+
 
 
 
             @forelse ($notes as $note)
+            <div class="row">
               <div class="col-9">
                 <h3>{{$note->nom}}</h3>
-                <p>{!!$note->note!!}</p>
+                <p>{{$note->descripcio}}</p>
               </div>
               <div class="col-3">
                 <div class="row">
@@ -69,16 +70,39 @@
                       <div class="btn-group btn-group-sm col-10 offset-2" role="group" aria-label="Basic example">
                         <form class="btn-group btn-group-sm"action="{{route('notes.show',['id'=>$note->id])}}"><button type="submit" class="btn text-white btn-warning">Mostrar</button></form>
                         <form class="btn-group btn-group-sm"action="{{route('notes.edit',['id'=>$note->id])}}"><button type="submit" class="btn btn-primary">Editar</button></form>
-                        <form method="post" class="btn-group btn-group-sm"action="{{route('notes.destroy',['id'=>$note->id])}}">{{method_field('DELETE')}}{{csrf_field()}}<button type="submit" class="btn btn-danger">Eliminar</button></form>
+                        <button type="button" class="btn btn-danger"data-toggle="modal" data-target="#eliminarnota">Eliminar</button>
                       </div>
                     </div>
                   </div>
                 </form>
+                <div class="modal fade" id="eliminarnota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content border border-danger">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar apunt</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        Estas segur que vols eliminar el apunt?<br>ja no el podras recuperar
+                      </div>
+                      <div class="modal-footer">
+                        <form method="post" class="btn"action="{{route('notes.destroy',['id'=>$note->id])}}">{{method_field('DELETE')}}{{csrf_field()}}<button type="submit" class="btn btn-danger">Eliminar</button></form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             @empty
 
             @endforelse
+            <div class="row mt-4">
+              <div class="mx-auto">
+                  {{$notes->render("pagination::bootstrap-4")}}
+              </div>
+            </div>
 
-          </div>
         </div>
           </div>
         </div>

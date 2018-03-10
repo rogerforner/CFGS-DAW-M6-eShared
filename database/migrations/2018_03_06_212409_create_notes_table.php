@@ -13,10 +13,12 @@ class CreateNotesTable extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(191);
         Schema::enableForeignKeyConstraints();
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
+            $table->text('descripcio');
             $table->integer('puntuacio')->nullable();
             $table->integer('idusuari')->unsigned();
             $table->integer('idcategoria')->unsigned();
