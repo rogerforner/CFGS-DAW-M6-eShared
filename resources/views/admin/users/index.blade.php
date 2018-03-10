@@ -29,7 +29,15 @@
                   <td class="align-middle">{{ $user->email }}</td>
                   <td class="align-middle">{{ $user->created_at }}</td>
                   <td class="align-middle">{{ $user->updated_at }}</td>
-                  <td class="align-middle"></td>
+                  <td class="align-middle">
+                    <div class="btn-group" role="group" aria-label="Accions">
+                      {{-- Veure --}}
+                      <a class="btn btn-primary btn-sm" href="{{ action('UserController@show', ['id' => $user->id]) }}" role="button"
+                         data-toggle="tooltip" data-placement="top" title="Veure">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </div><!-- /.btn-group -->
+                  </td>
                 </tr>
               @empty
                 <tr>

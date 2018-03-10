@@ -76,7 +76,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        // Obtenir l'usuari.
+        $user = User::findOrFail($id);
+
+        return view('admin.users.show', ['user' => $user]);
     }
 
     /**
