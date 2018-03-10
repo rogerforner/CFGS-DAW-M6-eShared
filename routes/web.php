@@ -17,21 +17,22 @@ Route::get('/', function () {
 });
  Route::name('home')->get('/home', 'DashboardController@index');
 Route::get('/roger', function () {
-  return view('entrega.roger');
+    return view('entrega.roger');
 });
 Route::get('/contactar', function () {
-  return view('entrega.contactar');
+    return view('entrega.contactar');
 });
 
 Route::get('/adria', function () {
-  return view('entrega.adria');
+    return view('entrega.adria');
 });
 
 Route::get('/enric', function () {
-  return view('enviarCorreu');
+    return view('enviarCorreu');
 });
+
 // ---------------------------------------
- Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
+Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
 Route::name('ruta_crear_categoria')->get('/category/create', 'CategoriesController@create');
 /*CREAR UN PRODUCTE*/
 Route::name('ruta_guardar_category')->post('/category', 'CategoriesController@store');
@@ -45,9 +46,29 @@ Route::name('ruta_eliminar_category')->get('/category/{category}/delete', 'Categ
 Route::name('ruta_categories')->get('/categories', 'CategoriesController@index');
 
 //RUTES PER A NOTES
-Route::group(['prefix' => 'user'], function() {
-
-    Route::resource('notes','NotesController');
+Route::group(['prefix' => 'user'], function () {
+    Route::resource('notes', 'NotesController');
 });
 Route::post('user/notes/{id}/rating', 'NotesController@puntuar')->name('puntuar');
 Auth::routes();
+
+/**
+ * USERS (admin)
+ * Gestionar usuaris des del panell d'administració.
+ * - resources/views/admin/users
+ *
+ * Route::resource
+ *
+ * Mitjançant aquest tipus de "ruta" fem servir l'arquitectura REST i ens
+ * estalviem crear una ruta per a cada acció, és el mètode el que determina
+ * quina acció dur a terme.
+ *
+ * GET /users            -> index()
+ * GET /users/create     -> create()
+ * POST /users           -> store(Request $request)
+ * GET /users/:id        -> show($id)
+ * GET /users/:id/edit   -> edit($id)
+ * PUT/PATCH /users/:id  -> update(Request $request, $id)
+ * DELETE /users/:id     -> destroy($id)
+ */
+Route::resource('admin.users', 'UserController');
