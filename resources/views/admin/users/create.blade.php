@@ -26,13 +26,13 @@
             {{-- Usuari --}}
             <div class="form-group">
               <label for="userName">Nom</label>
-              <input type="text" name="name" class="form-control" id="userName" aria-describedby="nameHelp" required>
+              <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="userName" aria-describedby="nameHelp" required>
               <small id="nameHelp" class="form-text text-muted">Nom complet.</small>
             </div>
             {{-- Email --}}
             <div class="form-group">
               <label for="userEmail">Correu electrònic</label>
-              <input type="email" name="email" class="form-control" id="userEmail" aria-describedby="emailHelp" required>
+              <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="userEmail" aria-describedby="emailHelp" required>
               <small id="emailHelp" class="form-text text-muted">Un correu electrònic únic (a la base de dades).</small>
             </div>
             {{-- Password --}}
