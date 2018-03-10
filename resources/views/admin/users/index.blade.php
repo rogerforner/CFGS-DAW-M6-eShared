@@ -36,6 +36,11 @@
                          data-toggle="tooltip" data-placement="top" title="Veure">
                         <i class="fas fa-eye"></i>
                       </a>
+                      {{-- Editar --}}
+                      <a class="btn btn-primary btn-sm" href="{{ action('UserController@edit', ['id' => $user->id]) }}" role="button"
+                         data-toggle="tooltip" data-placement="top" title="Editar">
+                        <i class="fas fa-edit"></i>
+                      </a>
                     </div><!-- /.btn-group -->
                   </td>
                 </tr>

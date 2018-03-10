@@ -23,9 +23,11 @@
             <dd class="col-sm-10">{{ $user->updated_at }}</dd>
           </dl>
           {{-- Tornar enrere --}}
-          <a href="{{ action('UserController@index') }}" class="card-link">
-            <i class="far fa-arrow-alt-circle-left"></i> Tornar
-          </a>
+          <p class="text-right">
+            <a href="{{ action('UserController@index') }}" class="card-link">
+              <i class="far fa-arrow-alt-circle-left"></i> Tornar
+            </a>
+          </p>
         </div>
       </div> <!-- /.card -->
     </div> <!-- /.col -->

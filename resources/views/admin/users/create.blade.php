@@ -57,6 +57,13 @@
             {{-- Crear --}}
             <button type="submit" class="btn btn-primary">Crear</button>
           </form>
+          <br>
+          {{-- Tornar enrere --}}
+          <p class="text-right">
+            <a href="{{ action('UserController@index') }}" class="card-link">
+              <i class="far fa-arrow-alt-circle-left"></i> Tornar
+            </a>
+          </p>
         </div>
       </div> <!-- /.card -->
     </div> <!-- /.col -->

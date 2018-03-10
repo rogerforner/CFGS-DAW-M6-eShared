@@ -90,7 +90,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Obtenir l'usuari.
+        $user = User::findOrFail($id);
+
+        return view('admin.users.edit', ['user' => $user]);
     }
 
     /**
@@ -102,7 +105,39 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Obtenir l'usuari.
+        $user = User::findOrFail($id);
+
+        // Validar dades obtingudes del formulari.
+        $data = request()->validate([
+          'name'     => 'required|string|max:255',
+          'email'    => [
+            'required',
+            'string',
+            'email',
+            'max:255',
+            // Ignorem les dades de l'usuari que s'està editant.
+            Rule::unique('users')->ignore($user->id)
+          ],
+          'password' => 'string|min:6|confirmed' // No obligatori
+        ]);
+
+        // Si el camp Password és null (no és required).
+        if ($data['password'] != null) {
+            // Encriptar password en cas de que s'hagi inserit.
+            $data['password'] = bcrypt($data['password']);
+        } else {
+            // Treiem del array $data en cas de que no s'hagi inserit.
+            unset($data['password']);
+        }
+
+        // Actualitzar l'usuari.
+        $user->update($data);
+
+        // TODO: determinal el rol.
+
+        // Vista on es llisten els usuaris.
+        return redirect()->action('UserController@index');
     }
 
     /**
