@@ -15,7 +15,11 @@
 Route::get('/', function () {
     return view('index');
 });
- Route::name('home')->get('/home', 'DashboardController@index');
+
+Route::name('home')->get('/home', 'DashboardController@index');
+
+
+// --------------------------------------- Entrega.
 Route::get('/roger', function () {
     return view('entrega.roger');
 });
@@ -30,8 +34,8 @@ Route::get('/adria', function () {
 Route::get('/enric', function () {
     return view('enviarCorreu');
 });
+// --------------------------------------- Fi entrega.
 
-// ---------------------------------------
 Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
 Route::name('ruta_crear_categoria')->get('/category/create', 'CategoriesController@create');
 /*CREAR UN PRODUCTE*/
@@ -63,12 +67,12 @@ Auth::routes();
  * estalviem crear una ruta per a cada acció, és el mètode el que determina
  * quina acció dur a terme.
  *
- * GET       admin/usuaris          -> index()
- * GET       admin/usuaris/create   -> create()
- * POST      admin/usuaris          -> store(Request $request)
- * GET       admin/usuaris/:id      -> show($id)
- * GET       admin/usuaris/:id/edit -> edit($id)
- * PUT/PATCH admin/usuaris/:id      -> update(Request $request, $id)
- * DELETE    admin/usuaris/:id      -> destroy($id)
+ * GET       home/users          -> index()
+ * GET       home/users/create   -> create()
+ * POST      home/users          -> store(Request $request)
+ * GET       home/users/:id      -> show($id)
+ * GET       home/users/:id/edit -> edit($id)
+ * PUT/PATCH home/users/:id      -> update(Request $request, $id)
+ * DELETE    home/users/:id      -> destroy($id)
  */
-Route::resource('admin/usuaris', 'UserController');
+Route::resource('home/users', 'UserController');
