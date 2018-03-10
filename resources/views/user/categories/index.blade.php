@@ -6,7 +6,7 @@
   </div>
   <div class="col-8">
     <div class="mt-4 row">
-      <h1>Apunts {{$category->nom}}</h1>
+      <h1>Apunts de {{$category->nom}}</h1>
     </div>
     <div class="row">
       <div class="col-12 my-5 img-thumbnail">

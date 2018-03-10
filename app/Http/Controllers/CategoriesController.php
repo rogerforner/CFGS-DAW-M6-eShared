@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     public function index()
     {
       $fills=array();
-      $parent=Category::where('pare','=',NULL)->get();
+      $parent=Category::where('pare','=',NULL)->paginate(10);
       foreach($parent as $pare){
         $fill=Category::where('pare','=',$pare->id)->get();
         $fills[$pare->id] = $fill;
@@ -117,6 +117,10 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
+        $notes=Note::where('idcategoria','=',$id)->get();
+        foreach($notes as $note){
+          Note::destroy($note->id);
+        }
 
         session()->flash('misatge','Categoria eliminada!'); //Flash perque un cop creat es eliminat
 

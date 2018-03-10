@@ -45,7 +45,7 @@ Route::name('ruta_editar_category')->get('/category/{category}/edit', 'Categorie
 
 Route::name('ruta_actualitzar_category')->put('/category/{category}/update', 'CategoriesController@update');
 
-Route::name('ruta_eliminar_category')->get('/category/{category}/delete', 'CategoriesController@destroy');
+Route::name('ruta_eliminar_category')->delete('/category/{category}/delete', 'CategoriesController@destroy');
 
 Route::name('ruta_categories')->get('/categories', 'CategoriesController@index');
 

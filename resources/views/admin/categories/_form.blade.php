@@ -8,8 +8,9 @@
   <div class="form-group">
     <label for="nom">Nom de la categoria:</label>
     <input type="text" name="nom" class="form-control " required value="{{$category->nom or old('nom')}}">
+    <small id="nomeHelp" class="form-text text-muted">Nom que s'assignara a la categoria.</small>
   </div>
-  <div class="form-group " style="    display: -webkit-box;">
+  <div hidden class="form-group " style="    display: -webkit-box;">
     <select class="form-control" name="pare">
       <option value="">--------</option>
       @forelse ($categories as $category1)
@@ -25,6 +26,6 @@
     <span class="col-1"data-toggle="tooltip" data-placement="right" title="Si esculls una opció t'estas referint a que es una categoria filla" ><i class="fas fa-question " ></i></span>
   </div>
     <button type="submit" class="btn btn-primary">
-      Guardar producte
+      Crear
     </button>
 </form>

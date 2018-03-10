@@ -85,6 +85,15 @@
                   <a class="dropdown-item" href="{{ action('UserController@create') }}">Crear usuari</a>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-align-justify"></i> Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ action('CategoriesController@index') }}">Veure categories</a>
+                  <a class="dropdown-item" href="{{ action('CategoriesController@create') }}">Crear categories</a>
+                </div>
+              </li>
             </ul>
             <!-- DRETA -->
             <ul class="navbar-nav ml-auto">

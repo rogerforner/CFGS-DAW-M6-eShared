@@ -15,7 +15,7 @@ class CreateCategoriesTable extends Migration
     {
         Schema::defaultStringLength(191);
         Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->onDelete('cascade');
             $table->string('nom');
             $table->integer('pare')->nullable();
 

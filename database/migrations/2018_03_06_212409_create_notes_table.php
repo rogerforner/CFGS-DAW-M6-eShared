@@ -21,7 +21,7 @@ class CreateNotesTable extends Migration
             $table->text('descripcio');
             $table->integer('puntuacio')->nullable();
             $table->integer('idusuari')->unsigned();
-            $table->integer('idcategoria')->unsigned();
+            $table->integer('idcategoria')->unsigned()->onDelete('cascade');
             $table->text('note');
             $table->timestamps();
         });
@@ -30,7 +30,7 @@ class CreateNotesTable extends Migration
 
         });
         Schema::table('notes', function($table) {
-          $table->foreign('idcategoria')->references('id')->on('categories');
+          $table->foreign('idcategoria')->references('id')->on('categories')->onDelete('cascade');
         });
 
     }
