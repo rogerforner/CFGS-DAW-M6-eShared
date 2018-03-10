@@ -63,12 +63,12 @@ Auth::routes();
  * estalviem crear una ruta per a cada acció, és el mètode el que determina
  * quina acció dur a terme.
  *
- * GET       admin/users          -> index()
- * GET       admin/users/create   -> create()
- * POST      admin/users          -> store(Request $request)
- * GET       admin/users/:id      -> show($id)
- * GET       admin/users/:id/edit -> edit($id)
- * PUT/PATCH admin/users/:id      -> update(Request $request, $id)
- * DELETE    admin/users/:id      -> destroy($id)
+ * GET       admin/usuaris          -> index()
+ * GET       admin/usuaris/create   -> create()
+ * POST      admin/usuaris          -> store(Request $request)
+ * GET       admin/usuaris/:id      -> show($id)
+ * GET       admin/usuaris/:id/edit -> edit($id)
+ * PUT/PATCH admin/usuaris/:id      -> update(Request $request, $id)
+ * DELETE    admin/usuaris/:id      -> destroy($id)
  */
-Route::resource('admin/users', 'UserController');
+Route::resource('admin/usuaris', 'UserController');
