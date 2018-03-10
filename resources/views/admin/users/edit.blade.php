@@ -22,7 +22,7 @@
           @endif
 
           {{-- Formulari --}}
-          <form action="{{ action('UserController@index') }}" method="post">
+          <form action="{{ action('UserController@update', ['id' => $user->id]) }}" method="post">
             {{ method_field('put') }}
             {{ csrf_field() }}
             {{-- Usuari --}}

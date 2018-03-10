@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -119,7 +120,7 @@ class UserController extends Controller
             // Ignorem les dades de l'usuari que s'està editant.
             Rule::unique('users')->ignore($user->id)
           ],
-          'password' => 'string|min:6|confirmed' // No obligatori
+          'password' => 'confirmed' // No obligatori
         ]);
 
         // Si el camp Password és null (no és required).
