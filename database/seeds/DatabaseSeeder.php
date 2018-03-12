@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         // Registrar Seeders per a executar-los.
         // Parar compte amb l'ordre perquè hi ha taules que depenen d'altres.
         $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(UserSeeder::class);
     }
 
     /*
