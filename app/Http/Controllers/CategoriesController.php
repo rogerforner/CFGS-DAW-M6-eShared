@@ -17,6 +17,7 @@ class CategoriesController extends Controller
     {
       $fills=array();
       $parent=Category::where('pare','=',NULL)->paginate(10);
+      
       foreach($parent as $pare){
         $fill=Category::where('pare','=',$pare->id)->get();
         $fills[$pare->id] = $fill;

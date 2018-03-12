@@ -16,8 +16,34 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::name('home')->get('/home', 'DashboardController@index');
 
+
+Route::middleware(['role:admin|free|pro|moderator'])->group(function () {
+
+  Route::group(['prefix' => 'user'], function () {
+      Route::resource('notes', 'NotesController');
+  });
+  Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
+  Route::post('user/notes/{id}/rating', 'NotesController@puntuar')->name('puntuar');
+
+  Route::name('home')->get('/home', 'DashboardController@index');
+
+Route::middleware(['role:admin|moderator'])->group(function () {
+  Route::resource('home/users', 'UserController');
+
+  Route::name('ruta_crear_categoria')->get('/category/create', 'CategoriesController@create');
+
+  Route::name('ruta_guardar_category')->post('/category', 'CategoriesController@store');
+
+  Route::name('ruta_editar_category')->get('/category/{category}/edit', 'CategoriesController@edit');
+
+  Route::name('ruta_actualitzar_category')->put('/category/{category}/update', 'CategoriesController@update');
+
+  Route::name('ruta_eliminar_category')->delete('/category/{category}/delete', 'CategoriesController@destroy');
+
+  Route::name('ruta_categories')->get('/categories', 'CategoriesController@index');
+});
+});
 
 // --------------------------------------- Entrega.
 Route::get('/roger', function () {
@@ -36,43 +62,8 @@ Route::get('/enric', function () {
 });
 // --------------------------------------- Fi entrega.
 
-Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
-Route::name('ruta_crear_categoria')->get('/category/create', 'CategoriesController@create');
-/*CREAR UN PRODUCTE*/
-Route::name('ruta_guardar_category')->post('/category', 'CategoriesController@store');
-/*EDITAR UN PRODUCTE*/
-Route::name('ruta_editar_category')->get('/category/{category}/edit', 'CategoriesController@edit');
 
-Route::name('ruta_actualitzar_category')->put('/category/{category}/update', 'CategoriesController@update');
-
-Route::name('ruta_eliminar_category')->delete('/category/{category}/delete', 'CategoriesController@destroy');
-
-Route::name('ruta_categories')->get('/categories', 'CategoriesController@index');
 
 //RUTES PER A NOTES
-Route::group(['prefix' => 'user'], function () {
-    Route::resource('notes', 'NotesController');
-});
-Route::post('user/notes/{id}/rating', 'NotesController@puntuar')->name('puntuar');
-Auth::routes();
 
-/**
- * USERS (admin)
- * Gestionar usuaris des del panell d'administració.
- * - resources/views/admin/users
- *
- * Route::resource
- *
- * Mitjançant aquest tipus de "ruta" fem servir l'arquitectura REST i ens
- * estalviem crear una ruta per a cada acció, és el mètode el que determina
- * quina acció dur a terme.
- *
- * GET       home/users          -> index()
- * GET       home/users/create   -> create()
- * POST      home/users          -> store(Request $request)
- * GET       home/users/:id      -> show($id)
- * GET       home/users/:id/edit -> edit($id)
- * PUT/PATCH home/users/:id      -> update(Request $request, $id)
- * DELETE    home/users/:id      -> destroy($id)
- */
-Route::resource('home/users', 'UserController');
+Auth::routes();

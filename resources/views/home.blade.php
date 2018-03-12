@@ -34,8 +34,9 @@
 
 
 
-
-
+                @php
+                {{$in=1;}}
+                @endphp
             @forelse ($notes as $note)
             <div class="row">
               <div class="col-9">
@@ -49,15 +50,15 @@
                 <form class="poststars" action="{{route('puntuar', $note->id)}}" id="addStar" method="POST">
                     <input id="mitja" class="mitja" type="hidden" name="mitja" value="{{$note->averageRating}}">
                     {{ csrf_field() }}
-                    <input class="star star-5" value="5" id="star-5" type="radio" name="star" disabled/>
+                    <input class="star star-5 " value="5" id="{{$in}}-5" type="radio" name="star" disabled/>
                     <label class="star star-5" for="star-5"></label>
-                    <input class="star star-4" value="4" id="star-4" type="radio" name="star" disabled/>
+                    <input class="star star-4 " value="4" id="{{$in}}-4" type="radio" name="star" disabled/>
                     <label class="star star-4" for="star-4"></label>
-                    <input class="star star-3" value="3" id="star-3" type="radio" name="star" disabled/>
+                    <input class="star star-3 " value="3" id="{{$in}}-3" type="radio" name="star" disabled/>
                     <label class="star star-3" for="star-3"></label>
-                    <input class="star star-2" value="2" id="star-2" type="radio" name="star" disabled/>
+                    <input class="star star-2 " value="2" id="{{$in}}-2" type="radio" name="star" disabled/>
                     <label class="star star-2" for="star-2"></label>
-                    <input class="star star-1" value="1" id="star-1" type="radio" name="star" disabled/>
+                    <input class="star star-1 " value="1" id="{{$in}}-1" type="radio" name="star" disabled/>
                     <label class="star star-1" for="star-1"></label>
                     </div>
                     <div class="col-2">
@@ -94,6 +95,9 @@
                   </div>
                 </div>
               </div>
+              @php
+              {{$in++;}}
+              @endphp
             @empty
 
             @endforelse
@@ -114,7 +118,8 @@
     function puntuacio (){
 
       var x=document.getElementsByClassName('mitja');
-
+      // la x ens serveix per a saber tots els apunts que tenim
+      var j=1;
 
       for (var i = 0; i < x.length; i++) {
         x1= Math.round(x[i].value);
@@ -122,16 +127,17 @@
           if (x1==0) {
 
           }else if (x1==1) {
-            document.getElementById("star-1").checked=true;
+            document.getElementById(j+"-1").checked=true;
           }else if (x1==2) {
-            document.getElementById("star-2").checked=true;
+            document.getElementById(j+"-2").checked=true;
           }else if (x1==3) {
-            document.getElementById("star-3").checked=true;
+            document.getElementById(j+"-3").checked=true;
           }else if (x1==4) {
-            document.getElementById("star-4").checked=true;
+            document.getElementById(j+"-4").checked=true;
           }else if (x1==5) {
-            document.getElementById("star-5").checked=true;
+            document.getElementById(j+"-5").checked=true;
           }
+          j++;
             console.log(x.length);
       }
 

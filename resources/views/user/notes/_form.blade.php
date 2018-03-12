@@ -2,7 +2,7 @@
   <form action="{{route('notes.update',['note'=>$note->id])}}" method="post" enctype="multipart/form-data">
     {{method_field('put')}}
 @else
-    <form action="{{route('notes.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{action('NotesController@store')}}" method="post" enctype="multipart/form-data">
 @endif
   {{csrf_field()}}
   <div class="form-group">

@@ -62,6 +62,7 @@
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <!-- ESQUERRA -->
+            @role('admin|moderator')
             <ul class="navbar-nav mr-auto">
               {{-- Provisional --}}
               {{-- <li class="nav-item dropdown">
@@ -76,6 +77,7 @@
                   <a class="dropdown-item" href="{{ url('contactar') }}">Contactar</a>
                 </div>
               </li> --}}
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-users"></i> Usuaris
@@ -95,6 +97,7 @@
                 </div>
               </li>
             </ul>
+            @endrole
             <!-- DRETA -->
             <ul class="navbar-nav ml-auto">
               <!-- Enllaços autenticació -->
