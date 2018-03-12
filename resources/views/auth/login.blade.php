@@ -4,7 +4,7 @@
 <div id="accedir" class="container-fluid m-0 p-0">
   <div class="row align-items-center justify-content-center">
     <div class="col-md-4">
-      <div class="card">
+      <div class="card shadow-3">
         <div class="card-body">
           <h5 class="card-title">Iniciar sessió</h5>
           {{-- Formulari --}}
