@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container my-5">
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
+<div id="accedir" class="container-fluid m-0 p-0">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Iniciar sessió</h5>
@@ -41,13 +41,22 @@
             {{-- Accions --}}
             <div class="form-group">
               <button type="submit" class="btn btn-primary">
-                Accedir
+                <i class="fas fa-sign-in-alt"></i> Accedir
               </button>
+              <a class="btn btn-primary" href="{{ route('register') }}" role="button">
+                <i class="fas fa-user-plus"></i> Crear un compte
+              </a>
               <p class="mt-3"><a href="{{ route('password.request') }}">
                 <small>No recordes el password?</small>
               </a></p>
             </div>
           </form>
+          {{-- Tornar enrere --}}
+          <p class="text-right">
+            <a href="{{ url('/') }}" class="card-link">
+              <i class="far fa-arrow-alt-circle-left"></i> Tornar
+            </a>
+          </p>
         </div>
       </div> <!-- /.card -->
     </div> <!-- /.col -->

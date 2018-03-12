@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
-<div class="container my-5">
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
+<div id="registrar-se" class="container-fluid m-0 p-0">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Crear un compte</h5>
@@ -47,10 +47,19 @@
               {{-- Accions --}}
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">
-                  Som-hi!
+                  <i class="fas fa-user-plus"></i> Som-hi!
                 </button>
+                <a class="btn btn-primary" href="{{ route('login') }}" role="button">
+                  <i class="fas fa-sign-in-alt"></i> Ja tinc un compte
+                </a>
               </div>
           </form>
+          {{-- Tornar enrere --}}
+          <p class="text-right">
+            <a href="{{ url('/') }}" class="card-link">
+              <i class="far fa-arrow-alt-circle-left"></i> Tornar
+            </a>
+          </p>
         </div>
       </div> <!-- /.card -->
     </div> <!-- /.col -->
