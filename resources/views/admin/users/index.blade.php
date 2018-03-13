@@ -36,6 +36,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Correu electrònic</th>
+                <th scope="col">Rol</th>
                 <th scope="col">Creat</th>
                 <th scope="col">Modificat</th>
                 <th scope="col">Accions</th>
@@ -47,6 +48,22 @@
                   <td class="align-middle">{{ $user->id }}</td>
                   <td class="align-middle">{{ $user->name }}</td>
                   <td class="align-middle">{{ $user->email }}</td>
+                  @php
+                    $obtainRoleName = $user->roles()->pluck('name')->implode(' ');
+                    $roleName = '';
+                    if ($obtainRoleName == 'admin') {
+                      $roleName = 'Administrador/ra';
+                    } elseif ($obtainRoleName == 'moderator') {
+                      $roleName = 'Moderador/ra';
+                    } elseif ($obtainRoleName == 'pro') {
+                      $roleName = 'Premium';
+                    } elseif ($obtainRoleName == 'free') {
+                      $roleName = 'Gratuït';
+                    } else {
+                      $roleName = '-';
+                    }
+                  @endphp
+                  <td class="align-middle">{{ $roleName }}</td>
                   <td class="align-middle">{{ $user->created_at }}</td>
                   <td class="align-middle">{{ $user->updated_at }}</td>
                   <td class="align-middle">
@@ -83,8 +100,6 @@
               @endforelse
             </tbody>
           </table>
-          {{-- Paginació --}}
-          {{ $users->links() }}
         </div>
       </div> <!-- /.card -->
     </div> <!-- /.col -->
