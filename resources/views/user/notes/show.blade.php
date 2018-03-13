@@ -4,7 +4,7 @@
 
 <div class="container my-5">
   <div class="row">
-    <div class="col-md-12 offset-md-0">
+    <div class="col-md-12 offset-md-0" style="min-height: 100vh;">
       <div class="card shadow-2">
         <div class="card-body">
           <h5 class="card-title">{{$note->nom}}</h5>

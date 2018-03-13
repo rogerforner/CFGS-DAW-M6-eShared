@@ -71,7 +71,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
       $category=Category::find($id)->get()->first();
-      $notes=Note::where('idcategoria','=',$id)->get();
+      $notes=Note::where('idcategoria','=',$id)->orderby('id','desc')->get();
       //dd($category);
       return view('user.categories.index')->with(['category'=>$category,'notes'=>$notes]);
     }

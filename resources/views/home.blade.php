@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="pl-0 container col-12">
+  <div class="pl-0 container col-12 " >
 
         <div class=" pl-0 mr-5 d-flex align-items-stretch">
           <div class="sidebar bg-dark">
@@ -19,15 +19,15 @@
           </div>
 
 
-          <div class=" content p-4" >
+          <div class=" content p-4 " >
             <div class="row">
-              <div class="col-12">
+              <div class="col-12 card shadow-2 pr-5">
                 <div class="row">
                   <div class="col-10">
-                    <div class="display-5 mb-4"><h1>Els teus apunts</h1></div>
+                    <div class="display-5 mb-4 pt-4 card-title"><h1>Els teus apunts</h1></div>
                   </div>
                   <div class="col-2">
-                    <a href="{{route('notes.create')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Afegir apunts</a>
+                    <a href="{{route('notes.create')}}" class="mt-4 btn btn-primary btn-lg" role="button" aria-pressed="true">Afegir apunts</a>
                   </div>
                 </div>
 
@@ -38,14 +38,14 @@
                 {{$in=1;}}
                 @endphp
             @forelse ($notes as $note)
-            <div class="row">
+            <div class="row card-body">
               <div class="col-9">
                 <h3>{{$note->nom}}</h3>
                 <p>{{$note->descripcio}}</p>
               </div>
               <div class="col-3">
                 <div class="row">
-                  <div class="col-10">
+                  <div class="col-10 pr-5">
 
                 <form class="poststars" action="{{route('puntuar', $note->id)}}" id="addStar" method="POST">
                     <input id="mitja" class="mitja" type="hidden" name="mitja" value="{{$note->averageRating}}">
@@ -98,6 +98,7 @@
               @php
               {{$in++;}}
               @endphp
+              <hr>
             @empty
 
             @endforelse
