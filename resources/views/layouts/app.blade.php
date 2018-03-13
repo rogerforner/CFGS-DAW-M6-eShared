@@ -151,12 +151,12 @@
                 <h6>Logotips dels col·laboradors i del concurs</h6>
                 <div class="col-md-6">
                   <a href="https://ca.dinahosting.com" data-toggle="tooltip" data-placement="top" title="Dinahosting">
-                    <img src="https://lh3.googleusercontent.com/B-hLweyADkG7PsSZo6YDu5EQJE1OD3Fx-rdKvAoleQ8rU32L_2QFXUe6JNIuFO8b4BSS7Xbj3TLqUEabcCHi6LDQf0v13ANGF-wxb7ODxqs-WZDAiYy6d0zFLBKl1JkJWOe5Co6ZecnA8zjh4t_WvFLjaDxjr7LUI_ElJ3C7lpOVTQyyqvg4PMUjjZahO_yddU7jCgHcEEqUZLnCbD2uSTwPS0q8MNIk-nFGaLg5j2jCCF9-eTcpmzU3EQZ1XV32NW8eqgtYAu78Pr6dL4e0pxJ_1kS58V-oMUkrj5ou9tHHKeFH00k19_9ERSti34YkOIJQ33yFhFFyTSuKQSmzImt0SKc9l9N4U11x2Kj018iSHpUXR0AvGk25JPzWyQHbTvNDrfNfNJTvUgSqnfjBUPwif6BbyG1M4Il3DEiOa9eu2Wq7ysdokW0ZH4dh9d_KABhf6Kwf7fI6oBlNr1V8hILBl4ApA_Zy6R01rk6Uan6LzsgmmmW443YkVQ9taKYj2hadJmZCmMo8wXz1_yHrKkAxykGpV-XxhntGztAWjZYdaEQ3NT1th_0M4MXRrmyseutZFshbLByXXBZvP025rDaY93G9qaP9P-stWQ=w216-h90-no" class="img-fluid" alt="Dinahosting">
+                    <img src="{{ asset('img/dinahosting.jpg') }}" class="img-fluid" alt="Dinahosting">
                   </a>
                 </div>
                 <div class="col-md-6">
                   <a href="http://websalpunt.cat" data-toggle="tooltip" data-placement="top" title="Webs al punt .cat">
-                    <img src="https://lh3.googleusercontent.com/CK_J2N4xbwFq5sAurLg3sN3HK5854JweaI07L0T1hXR5HAoLvlulFSLiMYts-7yeuJCTIY8oIYvosgUUtEYIobgoZaW9L07XeEGbUc2G3Ehe0TV4ggC6Hh2kcjeTdieyIINbcxEEObZHC11kDo1ok1EyYg4or0SHitt2PV3rmISdDp8wKEuuZXkJdJeCL6gwMkWWYWgDHJH3XueT-aKaT_rGOVbdFk_e7OmPNqFL0cTBN6icXL4NcqwXQZRhCuccDTIhfbCp_c4PxnVi8FVH1YApk9kZASbmVSaWYFOGstZDsGMlFfWBfJgrzO2iJBX_znHj-Xg78OgrnJEYZSkRq_tN7i18uXL9S53ckUdWOL0vuE2EsMMsAnl3BgJWC11tlFSpRuXHZbasT6wf5xI3V0adSvBrQ4tqujn84NPst3EB9ADKAkA-xOaoeWhwTtxmVqDyqnPVgg7PDUroZE5g616Ip05z-yAi9HGplsHHOkgFor3I3EIJEJXJqNndree0IZZL7BqI0fdW8mR_ZxxALvqNbVy96yhFpt_yBHy2CGvSndLvegqJTaMv4CPxYCY63DUUmM_F1Ca0_4Cuke8gLbidEYOx-JzdQgDX6g=s300-no" class="img-fluid" alt="WAP.cat">
+                    <img src="{{ asset('img/puntcat.png') }}" class="img-fluid" alt="WAP.cat">
                   </a>
                 </div>
               </div><!-- /.row -->
