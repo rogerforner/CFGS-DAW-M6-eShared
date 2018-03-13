@@ -17,14 +17,15 @@
           </ul>
         </div>
       @endif
+
       @forelse ($notes as $note)
         <div class="col-0">
           <div class="row">
             <div class="col-10">
-              <h5><a href="{{route('notes.show',['id'=>$note->id,'category'=>$category])}}">{{$note->nom}}</a></h5>
+              <h5><a href="{{route('notes.show',['id'=>$note['id'],'category'=>$category])}}">{{$note['nom']}}</a></h5>
             </div>
             <div class="col-2">
-              Penjat {{$note->created_at->diffForHumans()}}
+              Penjat {{$note['created_at']->diffForHumans()}}
             </div>
           </div>
         </div>

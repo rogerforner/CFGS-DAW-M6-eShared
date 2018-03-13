@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Note;
 use Carbon\Carbon;
+use Illuminate\Support;
 
 use Illuminate\Http\Request;
 
@@ -71,9 +72,20 @@ class CategoriesController extends Controller
     public function show($id)
     {
       $category=Category::find($id)->get()->first();
-      $notes=Note::where('idcategoria','=',$id)->orderby('id','desc')->get();
-      //dd($category);
-      return view('user.categories.index')->with(['category'=>$category,'notes'=>$notes]);
+
+
+      $notes=Note::where('idcategoria','=',$id)->get();
+      $collection=collect();
+      foreach($notes as $note){
+
+        $collection->push(
+          ['id'=>$note->id, 'nom'=>$note->nom, 'created_at'=>$note->created_at,'updated_at'=>$note->updated_at,'avg'=>$note->averageRating]
+        );
+      }
+
+      $collection=$collection->sortByDesc('avg');
+      
+      return view('user.categories.index')->with(['category'=>$category,'notes'=>$collection]);
     }
 
     /**
