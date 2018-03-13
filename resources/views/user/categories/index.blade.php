@@ -12,7 +12,7 @@
       <div class="col-12 my-5 img-thumbnail">
             @foreach ($notes as $note)
               <div class="col-0">
-                <h5><a href="{{route('notes.show',['id'=>$note->id,'category'=>$category])}}">{{$note->nom}}</a></h5>
+                <h5><a href="{{route('notes.show',['id'=>$note->id,'category'=>$category])}}">{{$note->nom}}</a>}{{$note->created_at->diffForHumans()}}</h5>
               </div>
             @endforeach
 

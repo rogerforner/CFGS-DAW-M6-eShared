@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Category;
 use App\Note;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -15,9 +16,12 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+      setlocale(LC_TIME, 'es_ES');
+      Carbon::setLocale('es');
+      Carbon::now()->addYear()->diffForHumans();
       $fills=array();
       $parent=Category::where('pare','=',NULL)->paginate(10);
-      
+
       foreach($parent as $pare){
         $fill=Category::where('pare','=',$pare->id)->get();
         $fills[$pare->id] = $fill;
