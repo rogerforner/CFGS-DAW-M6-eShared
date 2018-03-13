@@ -39,7 +39,7 @@
         "message": "Aquest lloc web empra cookies. Si segueixes navegant les estaràs acceptant.",
         "dismiss": "Ok!",
         "link": "Saber més",
-        "href": "{{ url('adria') }}"
+        "href": "{{ url('legal') }}"
       }
     })});
     </script>
@@ -52,10 +52,8 @@
 <body class="bg-secondary">
 @endif
 
-    <div id="app">
-        @yield('content')
-    </div>
-    
+    @yield('content')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bsadmin.js') }}"></script>

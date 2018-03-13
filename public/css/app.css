@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower|Krona+One|Raleway);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower|Krona+One|Raleway);@import url(https://fonts.googleapis.com/css?family=Cutive+Mono);@charset "UTF-8";
 
 /* Mis colores */
 
@@ -10035,6 +10035,21 @@ a.text-dark:focus {
   }
 }
 
+html,
+body {
+  height: 100%;
+}
+
+div#app {
+  padding-bottom: 95px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 .parallax {
   /* Crear el efecto parallax */
   background-attachment: fixed;
@@ -10205,6 +10220,10 @@ nav > a {
 p {
   font-size: 115%;
   font-family: 'Indie Flower', cursive;
+}
+
+div#alegal * {
+  font-family: 'Cutive Mono', monospace;
 }
 
 .animation-target {
@@ -10515,14 +10534,16 @@ label.star:before {
 /** end rating **/
 
 div#accedir {
-  background-image: url("https://source.unsplash.com/9o8YdYGTT64");
+  background-image: url("https://source.unsplash.com/PeUJyoylfe4");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #fff;
 }
 
 div#accedir .row.align-items-center.justify-content-center {
   height: 100vh;
+  width: 100vw;
 }
 
 div#registrar-se {
@@ -10530,9 +10551,38 @@ div#registrar-se {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #fff;
 }
 
 div#registrar-se .row.align-items-center.justify-content-center {
   height: 100vh;
+  width: 100vw;
+}
+
+div#e404 {
+  background-image: url("https://source.unsplash.com/6f6G4U6Y6Vs");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+}
+
+div#e404 .row.align-items-center.justify-content-center {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+div#e500 {
+  background-image: url("https://source.unsplash.com/kZLaSWR-7J4");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+}
+
+div#e500 .row.align-items-center.justify-content-center {
+  height: 100vh;
+  width: 100vw;
 }
 

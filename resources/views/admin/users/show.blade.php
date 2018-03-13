@@ -5,7 +5,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="col">
-      <div class="card">
+      <div class="card shadow-2">
         <div class="card-body">
           <h5 class="card-title">Dades de l'usuari</h5>
           {{-- Dades --}}

@@ -6,10 +6,10 @@
   <div class="container my-5">
     <div class="row">
       <div class="col">
-        <div class="card">
+        <div class="card shadow-2">
           <div class="card-body">
-            <h5>Crear categoria</h5>
-            @include('admin.categories._form', ['category'=>$category])
+            <h5 class="card-title">Crear categoria</h5>
+            @include('admin.categories._form', ['category'=>$category, 'accio' => 'Crear'])
             <br>
             {{-- Tornar enrere --}}
             <p class="text-right">

@@ -5,7 +5,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="col">
-      <div class="card">
+      <div class="card shadow-2">
         <div class="card-body">
           <h5 class="card-title">Crear un usuari</h5>
 
@@ -49,8 +49,11 @@
             {{-- Rol --}}
             <div class="form-group">
               <label for="userRole">Rol</label>
-              <select class="form-control" id="userRole" aria-describedby="roleHelp">
-                <option>---</option>
+              <select name="role" class="form-control" id="userRole" aria-describedby="roleHelp">
+                <option value="free">Gratuït</option>
+                <option value="pro">Premium</option>
+                <option value="moderator">Moderador/ra</option>
+                <option value="admin">Administrador/ra</option>
               </select>
               <small id="roleHelp" class="form-text text-muted">El rol determinarà les accions que es podran dur a terme.</small>
             </div>

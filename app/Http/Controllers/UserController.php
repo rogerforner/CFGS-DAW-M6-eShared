@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->paginate(10);
+        $users = USER::all();
 
         return view('admin.users.index', ['users' => $users]);
     }
@@ -63,7 +63,16 @@ class UserController extends Controller
             'password' => bcrypt($data['password']) // Encriptat.
         ]);
 
-        // TODO: Assignar rols.
+        // Determinar el rol a assignar.
+        if ($request->role === 'admin') {
+            $user->assignRole('admin');
+        } elseif ($request->role === 'moderator') {
+            $user->assignRole('moderator');
+        } elseif ($request->role === 'pro') {
+            $user->assignRole('pro');
+        } elseif ($request->role === 'free') {
+            $user->assignRole('free');
+        }
 
         // Vista on es llisten els usuaris.
         return redirect()->action('UserController@index');
@@ -135,7 +144,17 @@ class UserController extends Controller
         // Actualitzar l'usuari.
         $user->update($data);
 
-        // TODO: determinal el rol.
+        // Determinar el rol a assignar.
+        // Es substituirà el rol que es tenia.
+        if ($request->role === 'admin') {
+            $user->syncRoles('admin');
+        } elseif ($request->role === 'moderator') {
+            $user->syncRoles('moderator');
+        } elseif ($request->role === 'pro') {
+            $user->syncRoles('pro');
+        } elseif ($request->role === 'free') {
+            $user->syncRoles('free');
+        }
 
         // Vista on es llisten els usuaris.
         return redirect()->action('UserController@index');

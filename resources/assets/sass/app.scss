@@ -1,10 +1,11 @@
 // Bootstrap
 @import "colors";
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "general";
 @import "effects/parallax";
 @import "effects/shadows";
 @import "cookie-consent";
 @import "fonts";
 @import "animate";
 @import "preview";
-@import "auth";
+@import "auth-errors";
