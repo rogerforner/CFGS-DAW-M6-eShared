@@ -5,7 +5,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="col">
-      <div class="card">
+      <div class="card shadow-2">
         <div class="card-body">
           <h5 class="card-title">Editar un usuari</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{ $user->name }}</h6>

@@ -96,7 +96,9 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right shadow-4" aria-labelledby="navbarDropdownMenuLink">
-
+                  <a class="dropdown-item" href="{{ action('UserProfileController@show', ['id' => Auth::user()->id]) }}" >
+                    Perfil
+                  </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-power-off"></i> Tancar sessió
@@ -106,46 +108,12 @@
                   </form>
                 </div>
               </li>
-<<<<<<< HEAD
-            </ul>
-            @endrole
-            <!-- DRETA -->
-            <ul class="navbar-nav ml-auto">
-              <!-- Enllaços autenticació -->
-              @guest
-                <li><a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Accedir</a></li>
-                <li><a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Registrar-se</a></li>
-              @else
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ Auth::user()->name }}
-                  </a>
-
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                      Tancar sessió
-                    </a>
-                    <a class="dropdown-item" href="{{ action('UserProfileController@show', ['id' => Auth::user()->id]) }}" >
-                      Perfil
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      {{ csrf_field() }}
-                    </form>
-                  </div>
-                </li>
-              @endguest
-            </ul>
-          </div>
-        </nav>
-        @yield('content')
-=======
             @endguest
           </ul>
         </div>
       </nav>
 
       @yield('content')
->>>>>>> eddff51756912f63952f442ef5b0a616b32d3e5e
     </div>
     <!-- PEU DE PÀGINA -->
     <footer class="bg-cream-dark">

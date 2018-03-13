@@ -19,20 +19,16 @@ Route::get('/', function () {
 
 
 Route::middleware(['role:admin|free|pro|moderator'])->group(function () {
-    Route::group(['prefix' => 'user'], function () {
-        Route::resource('notes', 'NotesController');
-    });
 
-<<<<<<< HEAD
   Route::group(['prefix' => 'user'], function () {
       Route::resource('notes', 'NotesController');
       Route::resource('profile', 'UserProfileController');
   });
   Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
   Route::post('user/notes/{id}/rating', 'NotesController@puntuar')->name('puntuar');
-=======
+
     Route::name('ruta_show_categoria')->get('/category/show/{id}', 'CategoriesController@show');
->>>>>>> eddff51756912f63952f442ef5b0a616b32d3e5e
+
 
     Route::post('user/notes/{id}/rating', 'NotesController@puntuar')->name('puntuar');
 

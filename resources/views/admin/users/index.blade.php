@@ -80,7 +80,7 @@
                           <i class="fas fa-edit"></i>
                         </a>
                         {{-- Eliminar --}}
-                        <a class="btn btn-primary btn-sm" role="button" href="" data-tooltip="tooltip" data-placement="top" title="Eliminar"
+                        <a class="btn btn-primary btn-sm rounded-right" role="button" href="" data-tooltip="tooltip" data-placement="top" title="Eliminar"
                            data-toggle="modal" data-target="#deleteUser-{{ $user->id }}">
                           <i class="fas fa-trash"></i>
                         </a>
