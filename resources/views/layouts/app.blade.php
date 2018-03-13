@@ -39,7 +39,7 @@
         "message": "Aquest lloc web empra cookies. Si segueixes navegant les estaràs acceptant.",
         "dismiss": "Ok!",
         "link": "Saber més",
-        "href": "{{ url('adria') }}"
+        "href": "{{ url('legal') }}"
       }
     })});
     </script>
@@ -131,7 +131,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <p class="py-4 my-0">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2018 {{ config('app.name', 'eShared') }}. Tots els drets reservats.</p>
+            <p class="py-4 my-0">CreativeCommons <i class="fab fa-creative-commons"></i> 2018 {{ config('app.name', 'eShared') }}. <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Llicència Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
           </div>
         </div>
       </div>
