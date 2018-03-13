@@ -52,9 +52,7 @@
 <body class="bg-secondary">
 @endif
 
-    <div id="app">
-        @yield('content')
-    </div>
+    @yield('content')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
