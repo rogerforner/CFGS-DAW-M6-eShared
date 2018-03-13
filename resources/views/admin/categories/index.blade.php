@@ -36,10 +36,10 @@
                           </a>
                           {{-- Eliminar --}}
                           <a class="btn btn-danger btn-sm rounded-right" href="" role="button"
-                             data-toggle="modal" data-target="#eliminarcategoria" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                             data-toggle="modal" data-target="#eliminarcategoria{{$category->id}}" data-toggle="tooltip" data-placement="top" title="Eliminar">
                             <i class="fas fa-trash-alt"></i>
                           </a>
-                          <div class="modal fade" id="eliminarcategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="eliminarcategoria{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content border border-danger">
                                 <div class="modal-header">
