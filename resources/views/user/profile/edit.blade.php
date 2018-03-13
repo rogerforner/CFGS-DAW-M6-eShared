@@ -56,7 +56,7 @@
           <br>
           {{-- Tornar enrere --}}
           <p class="text-right">
-            <a href="{{ action('UserController@index') }}" class="card-link">
+            <a href="{{ route('home') }}" class="card-link">
               <i class="far fa-arrow-alt-circle-left"></i> Tornar
             </a>
           </p>
