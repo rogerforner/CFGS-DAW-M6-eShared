@@ -53,7 +53,7 @@
 @endif
 
     <div id="app">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-2">
         <a class="navbar-brand" id="nom" href="{{ url('/') }}">{{ config('app.name', 'eShared') }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-users"></i> Usuaris
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu shadow-4" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ action('UserController@index') }}">Veure usuaris</a>
                 <a class="dropdown-item" href="{{ action('UserController@create') }}">Crear usuari</a>
               </div>
@@ -76,7 +76,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-align-justify"></i> Categories
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu shadow-4" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ action('CategoriesController@index') }}">Veure categories</a>
                 <a class="dropdown-item" href="{{ action('CategoriesController@create') }}">Crear categories</a>
               </div>
@@ -95,11 +95,12 @@
                   {{ Auth::user()->name }}
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Tancar sessió
-                  </a>
+                <div class="dropdown-menu dropdown-menu-right shadow-4" aria-labelledby="navbarDropdownMenuLink">
 
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-power-off"></i> Tancar sessió
+                  </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                   </form>

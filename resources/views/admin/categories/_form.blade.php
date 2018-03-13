@@ -11,8 +11,8 @@
     <input type="text" name="nom" class="form-control " required value="{{$category->nom or old('nom')}}">
     <small id="nomeHelp" class="form-text text-muted">Nom que s'assignara a la categoria.</small>
   </div>
-  
+
     <button type="submit" class="btn btn-primary">
-      Crear
+      {{ $accio }}
     </button>
 </form>

@@ -4,7 +4,7 @@
 <div id="alegal" class="container my-5">
     <div class="row">
       <div class="col">
-        <div class="card">
+        <div class="card shadow-2">
           <div class="card-body">
             <h5 class="card-title">Avís legal</h5>
             <p><strong>Informació general del lloc web de <u>eShared</u> i dels seus continguts</strong></p>
