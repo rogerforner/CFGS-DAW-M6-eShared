@@ -53,84 +53,70 @@
 @endif
 
     <div id="app">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" id="nom" href="{{ url('/') }}">{{ config('app.name', 'eShared') }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a class="navbar-brand" id="nom" href="{{ url('/') }}">{{ config('app.name', 'eShared') }}</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <!-- ESQUERRA -->
-            @role('admin|moderator')
-            <ul class="navbar-nav mr-auto">
-              {{-- Provisional --}}
-              {{-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  (entrega)
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ url('/') }}">Enric</a>
-                  <a class="dropdown-item" href="{{ url('adria') }}">Adrià</a>
-                  <a class="dropdown-item" href="{{ url('roger') }}">Roger</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{{ url('contactar') }}">Contactar</a>
-                </div>
-              </li> --}}
-
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <!-- ESQUERRA -->
+          @role('admin|moderator')
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-users"></i> Usuaris
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ action('UserController@index') }}">Veure usuaris</a>
+                <a class="dropdown-item" href="{{ action('UserController@create') }}">Crear usuari</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-align-justify"></i> Categories
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ action('CategoriesController@index') }}">Veure categories</a>
+                <a class="dropdown-item" href="{{ action('CategoriesController@create') }}">Crear categories</a>
+              </div>
+            </li>
+          </ul>
+          @endrole
+          <!-- DRETA -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Enllaços autenticació -->
+            @guest
+              <li><a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Accedir</a></li>
+              <li><a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Registrar-se</a></li>
+            @else
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-users"></i> Usuaris
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ Auth::user()->name }}
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ action('UserController@index') }}">Veure usuaris</a>
-                  <a class="dropdown-item" href="{{ action('UserController@create') }}">Crear usuari</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-align-justify"></i> Categories
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ action('CategoriesController@index') }}">Veure categories</a>
-                  <a class="dropdown-item" href="{{ action('CategoriesController@create') }}">Crear categories</a>
-                </div>
-              </li>
-            </ul>
-            @endrole
-            <!-- DRETA -->
-            <ul class="navbar-nav ml-auto">
-              <!-- Enllaços autenticació -->
-              @guest
-                <li><a class="nav-link" href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Accedir</a></li>
-                <li><a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Registrar-se</a></li>
-              @else
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ Auth::user()->name }}
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Tancar sessió
                   </a>
 
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                      Tancar sessió
-                    </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                  </form>
+                </div>
+              </li>
+            @endguest
+          </ul>
+        </div>
+      </nav>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      {{ csrf_field() }}
-                    </form>
-                  </div>
-                </li>
-              @endguest
-            </ul>
-          </div>
-        </nav>
-        @yield('content')
+      @yield('content')
     </div>
     <!-- PEU DE PÀGINA -->
-    <footer class="bg-cream-dark h-25">
+    <footer class="bg-cream-dark">
       <div class="container-fluid">
         <div class="row">
-          <div class="col py-4">
+          <div class="col pt-3 pb-2">
             <p class="text-center my-0">
               <i class="fab fa-creative-commons fa-lg"></i> CreativeCommons 2018 {{ config('app.name', 'eShared') }}. <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Llicència Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
               <br>
