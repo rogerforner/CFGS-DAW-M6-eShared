@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<header id="index" style="background-image:url('{{ url('img/capcalera.jpg') }}');">
+<header class="container-fluid"id="index" style="background-image:url('{{ url('img/capcalera.jpg') }}');">
   <div class="row h-100">
     <div class="col-10 col-sm-10 mx-auto my-auto">
       <h1 class="text-center">eShared</h1>

@@ -47,7 +47,12 @@
 <body class="bg-secondary">
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-2">
-      <a class="navbar-brand" id="nom" href="{{ url('/') }}">{{ config('app.name', 'eShared') }}</a>
+      @guest
+        <a class="navbar-brand" data-toggle="tooltip" data-placement="top" title="Compartir és aprendre" id="nom" href="{{ url('/') }}">{{ config('app.name', 'eShared') }}  </a>
+      @endguest
+      @auth
+        <a class="navbar-brand" data-toggle="tooltip" data-placement="top" title="Compartir és aprendre"id="nom" href="{{ route('home') }}">{{ config('app.name', 'eShared') }}</a>
+      @endauth
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

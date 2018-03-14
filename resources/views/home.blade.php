@@ -8,14 +8,16 @@
           <div class="sidebar bg-dark">
             <h3 class="ml-4 mt-3 text-info">Categories</h3>
 
-            <ul class="list-unstyled mt-4 list">
+
 
             @forelse ($categories as $category)
+              <ul class="list-unstyled mt-4 list">
                 <li class="text-white ml-5"><a href='{{route("ruta_show_categoria",['id' => $category->id])}}'>{{$category->nom}}</a></li>
+              </ul>
             @empty
 
             @endforelse
-            </ul>
+
           </div>
 
 

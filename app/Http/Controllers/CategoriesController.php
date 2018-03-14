@@ -71,8 +71,9 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-      $category=Category::find($id)->get()->first();
 
+      $category=Category::find($id);
+      
 
       $notes=Note::where('idcategoria','=',$id)->get();
       $collection=collect();
@@ -84,7 +85,7 @@ class CategoriesController extends Controller
       }
 
       $collection=$collection->sortByDesc('avg');
-      
+
       return view('user.categories.index')->with(['category'=>$category,'notes'=>$collection]);
     }
 
