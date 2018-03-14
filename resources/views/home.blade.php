@@ -25,10 +25,10 @@
             <div class="row">
               <div class="col-12 card shadow-2 pr-5">
                 <div class="row">
-                  <div class="col-10">
+                  <div class="col-sm-12 col-md-10">
                     <div class="display-5 mb-4 pt-4 card-title"><h1>Els teus apunts</h1></div>
                   </div>
-                  <div class="col-2">
+                  <div class="col-sm-12 col-md-2 ">
                     <a href="{{route('notes.create')}}" class="mt-4 btn btn-primary btn-lg" role="button" aria-pressed="true">Afegir apunts</a>
                   </div>
                 </div>
