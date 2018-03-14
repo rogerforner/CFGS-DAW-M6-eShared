@@ -14,7 +14,7 @@ class CreatePermissionTables extends Migration
     public function up()
     {
         $tableNames = config('permission.table_names');
-        Schema::defaultStringLength(191);
+
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
