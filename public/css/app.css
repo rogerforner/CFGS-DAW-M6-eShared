@@ -10044,6 +10044,60 @@ div#app {
   min-height: 100vh;
 }
 
+.eshared {
+  font-family: 'Krona One', sans-serif;
+}
+
+header#index {
+  height: 600px;
+  background-color: #fff;
+}
+
+header#index h1 {
+  font-family: 'Krona One', sans-serif;
+  color: #2D728F;
+  text-shadow: 0px 0px 5px black;
+}
+
+header#index .row {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 242, 204, 0.48)), color-stop(rgba(255, 242, 204, 0.48)), color-stop(rgba(255, 242, 204, 0.48)), to(#F5EE9E));
+  background: linear-gradient(rgba(255, 242, 204, 0.48), rgba(255, 242, 204, 0.48), rgba(255, 242, 204, 0.48), #F5EE9E);
+}
+
+header#index h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 576px) {
+  header#index h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  header#index h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  header#index h1 {
+    font-size: 8rem;
+  }
+}
+
+.card {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
 .parallax {
   /* Crear el efecto parallax */
   background-attachment: fixed;
