@@ -18,44 +18,38 @@
     <script src="{{ asset('js/bootstrap-rating-input.js') }}"></script>
     <link href="{{ asset('css/bsadmin.css') }}  " rel="stylesheet">
 
-<script src="{{asset('js/bootstrap-rating-input.min.js')}}"></script>
-    <!-- cookie consent -->
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-    <script>
-    window.addEventListener("load", function(){
-    window.cookieconsent.initialise({
-      "palette": {
-        "popup": {
-          "background": "#eaf7f7",
-          "text": "#5c7291"
+    <script src="{{asset('js/bootstrap-rating-input.min.js')}}"></script>
+      <!-- cookie consent -->
+      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+      <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+      <script>
+      window.addEventListener("load", function(){
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#eaf7f7",
+            "text": "#5c7291"
+          },
+          "button": {
+            "background": "#56cbdb",
+            "text": "#ffffff"
+          }
         },
-        "button": {
-          "background": "#56cbdb",
-          "text": "#ffffff"
+        "content": {
+          "message": "Aquest lloc web empra cookies. Si segueixes navegant les estaràs acceptant.",
+          "dismiss": "Ok!",
+          "link": "Saber més",
+          "href": "{{ url('legal') }}"
         }
-      },
-      "content": {
-        "message": "Aquest lloc web empra cookies. Si segueixes navegant les estaràs acceptant.",
-        "dismiss": "Ok!",
-        "link": "Saber més",
-        "href": "{{ url('legal') }}"
-      }
-    })});
+      })});
     </script>
 </head>
-@if (Request::path()=='home')
-<body onload="onload();"class="bg-secondary">
-@elseif (Request::path()=='/')
-<body class="bg-secondary" onload="checkCookie();">
-@else
 <body class="bg-secondary">
-@endif
 
-    @yield('content')
+  @yield('content')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/bsadmin.js') }}"></script>
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ asset('js/bsadmin.js') }}"></script>
 </body>
 </html>
