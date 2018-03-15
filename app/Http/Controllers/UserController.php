@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -101,9 +102,19 @@ class UserController extends Controller
     public function edit($id)
     {
         // Obtenir l'usuari.
-        $user = User::findOrFail($id);
+        $user       = User::findOrFail($id);
 
-        return view('admin.users.edit', ['user' => $user]);
+        // Obtenir la id de l'usuari a editar i el que fa l'acció.
+        $userAction = Auth::user()->id;
+
+        // Evitem que qualsevol usuari, menys l'afectat, pugui editar l'usuari amb ID
+        if ($userAction != 1 && $user->id == 1) {
+            // back() crea una redirecció a la última localització de l'usuari
+            // abans d'arribar aquí.
+            return back()->with('warning', 'No pots editar l\'usuari amb ID = 1.');
+        } else {
+            return view('admin.users.edit', ['user' => $user]);
+        }
     }
 
     /**
