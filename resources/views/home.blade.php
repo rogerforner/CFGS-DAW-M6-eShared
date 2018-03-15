@@ -2,152 +2,131 @@
 
 @section('content')
 
-  <div class="pl-0 container col-12 " >
+<div class="container-fluid m-0 p-0">
+  <div class="row">
+    {{-- SIDEBAR --}}
+    <div id="aside" class="col-md-2 bg-dark">
+      <div class="llistaCat my-5 pl-3">
+        <h3 class="text-info"><i class="far fa-list-alt"></i> Categories</h3>
+        @forelse ($categories as $category)
+          <ul class="list-unstyled mt-4 list">
+            <li class="ml-5">
+              <a class="text-white" href='{{ route("ruta_show_categoria",['id' => $category->id]) }}'>{{ $category->nom }}</a>
+            </li>
+          </ul>
+        @empty
+          <p class="text-white">Encara no hi ha categories. <a class="text-white" href="{{ action('CategoriesController@create') }}">Crear categoria</a>.</p>
+        @endforelse
+      </div>
+    </div><!-- /.col -->
 
-        <div class=" pl-0 mr-5 d-flex align-items-stretch">
-          <div class="sidebar bg-dark">
-            <h3 class="ml-4 mt-3 text-info">Categories</h3>
-
-
-
-            @forelse ($categories as $category)
-              <ul class="list-unstyled mt-4 list">
-                <li class="text-white ml-5"><a href='{{route("ruta_show_categoria",['id' => $category->id])}}'>{{$category->nom}}</a></li>
-              </ul>
-            @empty
-
-            @endforelse
-
-          </div>
-
-
-          <div class=" content p-4 " >
-            <div class="row">
-              <div class="col-12 card shadow-2 pr-5">
-                <div class="row">
-                  <div class="col-sm-12 col-md-10">
-                    <div class="display-5 mb-4 pt-4 card-title"><h1>Els teus apunts</h1></div>
-                  </div>
-                  <div class="col-sm-12 col-md-2 ">
-                    <a href="{{route('notes.create')}}" class="mt-4 btn btn-primary btn-lg" role="button" aria-pressed="true">Afegir apunts</a>
-                  </div>
-                </div>
-
-
-
-
-                @php
-                {{$in=1;}}
-                @endphp
-            @forelse ($notes as $note)
-            <div class="row card-body">
-              <div class="col-9">
+    {{-- ARTICLE --}}
+    <div id="section" class="col-md-10">
+      <div class="card shadow-2 my-5 mx-3">
+        <div class="card-body">
+          {{-- Títol i Botó afegir --}}
+          <div class="row align-items-center">
+            <div class="col-md-6 order-2 order-md-1">
+              <h5 class="card-title">Els teus apunts</h5>
+            </div><!-- /.col -->
+            <div class="col-md-6 order-1 order-md-2">
+              <a class="btn btn-primary float-md-right mb-3" href="{{ route('notes.create') }}" role="button">
+                <i class="fas fa-plus-circle"></i> Afegir apunts
+              </a>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+          {{-- Llista d'apunts --}}
+          <hr>
+          @php
+            {{ $in=1; }}
+          @endphp
+          @forelse ($notes as $note)
+            <div class="row align-items-center">
+              {{-- Informació apunts --}}
+              <div class="col-md-4">
                 <h3>{{$note->nom}}</h3>
                 <p>{{$note->descripcio}}</p>
-              </div>
-              <div class="col-3">
-                <div class="row">
-                  <div class="col-10 pr-5">
-
+              </div><!-- /.col -->
+              {{-- Puntuació i Accions --}}
+              <div class="col-md-8">
                 <form class="poststars" action="{{route('puntuar', $note->id)}}" id="addStar" method="POST">
-                    <input id="mitja" class="mitja" type="hidden" name="mitja" value="{{$note->averageRating}}">
-                    {{ csrf_field() }}
-                    <input class="star star-5 " value="5" id="{{$in}}-5" type="radio" name="star" disabled/>
-                    <label class="star star-5" for="star-5"></label>
-                    <input class="star star-4 " value="4" id="{{$in}}-4" type="radio" name="star" disabled/>
-                    <label class="star star-4" for="star-4"></label>
-                    <input class="star star-3 " value="3" id="{{$in}}-3" type="radio" name="star" disabled/>
-                    <label class="star star-3" for="star-3"></label>
-                    <input class="star star-2 " value="2" id="{{$in}}-2" type="radio" name="star" disabled/>
-                    <label class="star star-2" for="star-2"></label>
-                    <input class="star star-1 " value="1" id="{{$in}}-1" type="radio" name="star" disabled/>
-                    <label class="star star-1" for="star-1"></label>
-                    </div>
-                    <div class="col-2">
-
-
-                    <span class="star star-1 badge badge-primary">{{$note->averageRating}} / 5</span>
-                    </div>
-                    </div>
-                    <div class="row">
-                      <div class="btn-group btn-group-sm col-10 offset-2" role="group" aria-label="Basic example">
-                        <form class="btn-group btn-group-sm"action="{{route('notes.show',['id'=>$note->id])}}"><button type="submit" class="btn text-white btn-warning">Mostrar</button></form>
-                        <form class="btn-group btn-group-sm"action="{{route('notes.edit',['id'=>$note->id])}}"><button type="submit" class="btn btn-primary">Editar</button></form>
-                        <button type="button" class="btn btn-danger"data-toggle="modal" data-target="#eliminarnota">Eliminar</button>
+                  {{ csrf_field() }}
+                  <div class="row align-items-center">
+                    {{-- ***** --}}
+                    <div class="col-md-6">
+                      <input id="mitja" class="mitja" type="hidden" name="mitja" value="{{$note->averageRating}}">
+                      <input class="star star-5 " value="5" id="{{$in}}-5" type="radio" name="star" disabled/>
+                      <label class="star star-5" for="star-5"></label>
+                      <input class="star star-4 " value="4" id="{{$in}}-4" type="radio" name="star" disabled/>
+                      <label class="star star-4" for="star-4"></label>
+                      <input class="star star-3 " value="3" id="{{$in}}-3" type="radio" name="star" disabled/>
+                      <label class="star star-3" for="star-3"></label>
+                      <input class="star star-2 " value="2" id="{{$in}}-2" type="radio" name="star" disabled/>
+                      <label class="star star-2" for="star-2"></label>
+                      <input class="star star-1 " value="1" id="{{$in}}-1" type="radio" name="star" disabled/>
+                      <label class="star star-1" for="star-1"></label>
+                      <br>
+                      <span class="pstar badge badge-primary" data-toggle="tooltip" data-placement="bottom" title="Puntuació">{{$note->averageRating}} / 5</span>
+                    </div><!-- /.col -->
+                    {{-- Accions --}}
+                    <div class="col-md-6">
+                      <div class="btn-group btn-group mt-sm-3 mt-md-0" role="group" aria-label="Basic example">
+                        {{-- Veure --}}
+                        <form class="btn-group btn-group-sm" action="{{route('notes.show',['id'=>$note->id])}}"><button type="submit" class="btn text-white btn-primary" data-toggle="tooltip" data-placement="top" title="Veure"><i class="fas fa-eye"></i></button></form>
+                        {{-- Editar --}}
+                        <form class="btn-group btn-group-sm" action="{{route('notes.edit',['id'=>$note->id])}}"><button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button></form>
+                        {{-- Eliminar --}}
+                        <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#eliminarnota" data-tooltip="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></button>
                       </div>
-                    </div>
-                  </div>
+                    </div><!-- /.col -->
+                  </div><!-- /.row -->
                 </form>
-                <div class="modal fade" id="eliminarnota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content border border-danger">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Eliminar apunts</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <strong>Estàs segur de que vols eliminar els apunts?</strong><br>Si els elimines ja no els podràs recuperar.
-                      </div>
-                      <div class="modal-footer">
-                        <form method="post" class="btn"action="{{route('notes.destroy',['id'=>$note->id])}}">{{method_field('DELETE')}}{{csrf_field()}}<button type="submit" class="btn btn-danger">Eliminar</button></form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @php
-              {{$in++;}}
-              @endphp
-              <hr>
-            @empty
-
-            @endforelse
-            <div class="row mt-4">
-              <div class="mx-auto">
-                  {{$notes->render("pagination::bootstrap-4")}}
-              </div>
-            </div>
-
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+            <hr>
+            @php
+              {{ $in++; }}
+            @endphp
+          @empty
+            <p>Encara no has afegit apunts. <a class="text-white" href="{{ route('notes.create') }}">Afegir apunts</a>.</p>
+          @endforelse
+          {{-- Paginació --}}
+          <div class="row">
+            <div class="col">
+              {{ $notes->render("pagination::bootstrap-4") }}
+            </div><!-- /.col -->
+          </div><!-- /.row -->
         </div>
-          </div>
-        </div>
-          </div>
-        </div>
+      </div> <!-- /.card -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</div>
 
-    </div>
-    <script type="text/javascript">
-    function puntuacio (){
+{{-- Script Puntuació --}}
+<script type="text/javascript">
+function puntuacio (){
+  var x=document.getElementsByClassName('mitja');
+  // la x ens serveix per a saber tots els apunts que tenim
+  var j=1;
+  for (var i = 0; i < x.length; i++) {
+    x1= Math.round(x[i].value);
+      if (x1==0) {
 
-      var x=document.getElementsByClassName('mitja');
-      // la x ens serveix per a saber tots els apunts que tenim
-      var j=1;
-
-      for (var i = 0; i < x.length; i++) {
-        x1= Math.round(x[i].value);
-
-          if (x1==0) {
-
-          }else if (x1==1) {
-            document.getElementById(j+"-1").checked=true;
-          }else if (x1==2) {
-            document.getElementById(j+"-2").checked=true;
-          }else if (x1==3) {
-            document.getElementById(j+"-3").checked=true;
-          }else if (x1==4) {
-            document.getElementById(j+"-4").checked=true;
-          }else if (x1==5) {
-            document.getElementById(j+"-5").checked=true;
-          }
-          j++;
-            console.log(x.length);
+      }else if (x1==1) {
+        document.getElementById(j+"-1").checked=true;
+      }else if (x1==2) {
+        document.getElementById(j+"-2").checked=true;
+      }else if (x1==3) {
+        document.getElementById(j+"-3").checked=true;
+      }else if (x1==4) {
+        document.getElementById(j+"-4").checked=true;
+      }else if (x1==5) {
+        document.getElementById(j+"-5").checked=true;
       }
-
-    }
-
-      puntuacio();
-
-    </script>
-
+      j++;
+        console.log(x.length);
+  }
+}
+puntuacio();
+</script>
 @endsection

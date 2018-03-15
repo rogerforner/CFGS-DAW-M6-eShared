@@ -10489,8 +10489,8 @@ input.star {
 }
 
 label.star {
-  float: right;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 20px;
   color: #444;
   -webkit-transition: all .2s;
@@ -10648,5 +10648,9 @@ header#index h1 {
 .card:hover {
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+div#aside {
+  min-height: 100vh;
 }
 
