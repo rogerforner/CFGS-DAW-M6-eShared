@@ -26,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Determinar la carpeta "public".
+        // Dinahosting empra la www
+        // Comentar per treballar en local.
+        $this->app->bind('path.public', function () {
+            return base_path().'/www';
+        });
     }
 }
