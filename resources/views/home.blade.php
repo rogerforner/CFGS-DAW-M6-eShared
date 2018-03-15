@@ -76,7 +76,12 @@
                         {{-- Editar --}}
                         <form class="btn-group btn-group-sm" action="{{route('notes.edit',['id'=>$note->id])}}"><button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></button></form>
                         {{-- Eliminar --}}
-                        <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#eliminarnota" data-tooltip="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#deleteNote-{{$note->id}}" data-tooltip="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        @include('partials.modal', [
+                          'id'      => $note->id,
+                          'title'   => $note->nom,
+                          'updated' => $note->updated_at
+                        ])
                       </div>
                     </div><!-- /.col -->
                   </div><!-- /.row -->
@@ -88,7 +93,7 @@
               {{ $in++; }}
             @endphp
           @empty
-            <p>Encara no has afegit apunts. <a class="text-white" href="{{ route('notes.create') }}">Afegir apunts</a>.</p>
+            <p>Encara no has afegit apunts. <a href="{{ route('notes.create') }}">Afegir apunts</a>.</p>
           @endforelse
           {{-- Paginació --}}
           <div class="row">
