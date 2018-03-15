@@ -9,8 +9,23 @@
   </div>
 </header>
 
+<ul id="indexnav" class="nav justify-content-center sticky-top">
+  <li class="nav-item">
+    <a class="nav-link active" href="#el-producte" data-toggle="tooltip" data-placement="top" title="El nostre producte.">eShared</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#el-concurs" data-toggle="tooltip" data-placement="top" title="Webs al punt .cat.">El concurs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#equip-gspd" data-toggle="tooltip" data-placement="top" title="Equip GSPD">Equip</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#github" data-toggle="tooltip" data-placement="top" title="Descarrega'l per trastejar :)">El codi</a>
+  </li>
+</ul>
+
 <div class="container">
-  <div class="row my-4">
+  <div id="el-producte" class="row my-4">
     <div class="col">
       <div class="card shadow-2">
         <div class="card-body">
@@ -45,7 +60,7 @@
         <div class="card-body">
           <div class="card-body">
             <h5 class="card-title eshared">Pro</h5>
-            <p class="card-text">Penja apunts de qualitat de forma gratuïta i consumei-los directament sense la necessitat d'esperar a que siguin puntuats.</p>
+            <p class="card-text">Penja apunts de qualitat de forma gratuïta i consumeix-los directament sense la necessitat d'esperar a que siguin puntuats.</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><i class="fas fa-times"></i> GRATUÏT</li>
@@ -61,7 +76,7 @@
     </div><!-- /.col -->
   </div><!-- /.row -->
 <hr>
-  <div class="row my-4 align-items-center">
+  <div id="el-concurs" class="row my-4 align-items-center">
     <div class="col-md-6">
       <div class="card shadow-2 mb-4">
         <div class="card-body">
@@ -91,7 +106,7 @@
     </div><!-- /.col -->
   </div><!-- /.row -->
 <hr>
-  <div class="row my-4">
+  <div id="equip-gspd" class="row my-4">
     <div class="col">
       <div class="card shadow-2">
         <div class="card-body">
@@ -115,7 +130,7 @@
     </div><!-- /.col -->
   </div><!-- /.row -->
   <hr>
-    <div class="row my-4">
+    <div id="github" class="row my-4">
       <div class="col">
         <div class="card shadow-2">
           <div class="card-body">

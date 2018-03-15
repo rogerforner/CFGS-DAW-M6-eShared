@@ -3,8 +3,8 @@ Iniciar els components de plugins que estiguem emprant.
 
 # Twitter Bootstrap
 ## Tooltips
-# Editor de text
-## Summernote
+# Estrelles
+# Efecte escroll en àncores
 *******************************************************************************/
 $(function() {
   /*
@@ -16,16 +16,21 @@ $(function() {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-tooltip="tooltip"]').tooltip()
 
-
   /*
-  # Editor de text
+  # Estrelles
   --------------------------------------------------------------------------- */
-  /*
-  ## Summernote
-  --------------------------------------------------------------------------- */
-
   $('#addStar').change('.star', function(e) {
     $(this).submit();
   });
 
+  /*
+  # Efecte escroll en àncores
+  --------------------------------------------------------------------------- */
+  $(document).on('click', 'a[href^="#"]', function(event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+  });
 });
