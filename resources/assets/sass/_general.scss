@@ -25,7 +25,6 @@ header#index {
     background: linear-gradient(rgba(255, 242, 204, 0.48), rgba(255, 242, 204, 0.48), rgba(255, 242, 204, 0.48), #F5EE9E);
   }
 }
-
 @include media-breakpoint-up(xs) {
   header#index {
     h1 {

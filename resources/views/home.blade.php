@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid m-0 p-0">
+<div id="home" class="container-fluid">
   <div class="row">
     {{-- SIDEBAR --}}
     <div id="aside" class="col-md-2 bg-dark">
@@ -17,6 +17,9 @@
         @empty
           <p class="text-white">Encara no hi ha categories. <a class="text-white" href="{{ action('CategoriesController@create') }}">Crear categoria</a>.</p>
         @endforelse
+      </div>
+      <div class="veureApunts d-md-none pl-3">
+        <h3 class="text-info"><i class="fas fa-chevron-down"></i> <a href="#section">Veure apunts</a></h3>
       </div>
     </div><!-- /.col -->
 
