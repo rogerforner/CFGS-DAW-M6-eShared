@@ -51,6 +51,18 @@
               </a></p>
             </div>
           </form>
+          {{-- Usuaris d'exemple --}}
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Usuaris d'exemple</h4>
+            <ul>
+              <li><strong>Administrador\ra</strong>: admin@example.com</li>
+              <li><strong>Moderador\ra</strong>: moderator@example.com</li>
+              <li><strong>Pro</strong>: pro@example.com</li>
+              <li><strong>Free</strong>: free@example.com</li>
+            </ul>
+            <hr>
+            <strong>Password</strong>: 123456
+          </div>
           {{-- Tornar enrere --}}
           <p class="text-right">
             <a href="{{ url('/') }}" class="card-link">

@@ -17,7 +17,7 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Creat</th>
                     <th scope="col">Modificat</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Acció</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  Estas segur que vols eliminar aquesta categoria?<br>ja no podràs recuperar-la, també s'eliminaran <br> tots els apunts associats.
+                                  Estàs segur de que vols eliminar aquesta categoria?<br>Ja no podràs recuperar-la i també s'eliminaran tots els apunts associats.
                                 </div>
                                 <div class="modal-footer">
                                   <form method="post" class="btn"action="{{route('ruta_eliminar_category',['category'=>$category->id])}}">{{method_field('DELETE')}}{{csrf_field()}}<button type="submit" class="btn btn-danger">Eliminar</button></form>
@@ -62,7 +62,7 @@
                     </tr>
                   @empty
                     <tr>
-                      <td colspan="4">Encara no hi han categories. <a href="{{ action('CategoriesController@create') }}">Crear categoria</a>.</td>
+                      <td colspan="4">Encara no hi ha categories. <a href="{{ action('CategoriesController@create') }}">Crear categoria</a>.</td>
                     </tr>
                   @endforelse
                 </tbody>

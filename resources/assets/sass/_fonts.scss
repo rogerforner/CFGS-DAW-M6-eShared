@@ -1,16 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Krona+One|Raleway');
-@import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono|Krona+One|Libre+Baskerville|Open+Sans');
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  font-family: 'Raleway', sans-serif;
-}
-nav>a{
+nav a {
   font-family: 'Krona One', sans-serif;
+  font-size: 0.8rem;
 }
-p{
-font-size: 115%;
-font-family: 'Indie Flower', cursive;
+
+ul#indexnav {
+  background-color: rgba(245, 238, 158, 0.82);
+
+  a {
+    font-family: 'Krona One', sans-serif;
+    color: #2D728F;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+h5.card-title,
+th {
+  // font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p,
+ul li,
+td,
+dt, dd,
+.btn,
+form {
+  font-family: 'Libre Baskerville', serif;
 }
 
 div#alegal {

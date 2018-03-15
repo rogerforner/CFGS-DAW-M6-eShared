@@ -131,6 +131,8 @@
         <div class="col pt-3 pb-2">
           <p class="text-center my-0">
             <i class="fab fa-creative-commons fa-lg"></i> CreativeCommons 2018 {{ config('app.name', 'eShared') }}. <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Llicència Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            | <a class="text-white" href="{{ url('legal') }}"><i class="fas fa-gavel fa-lg"></i> Avís legal</a>
+            | <i class="fas fa-envelope fa-lg"></i><a class="text-white" href="mailto:email@example.com"> Contactar</a>
             <br>
             <button type="button" class="btn btn-link text-white" data-toggle="modal" data-target="#exampleModal">
               <i class="fas fa-info-circle fa-lg"></i> Més nformació sobre el lloc web
@@ -161,12 +163,12 @@
             <div class="row align-items-center">
               <h6>Logotips dels col·laboradors i del concurs</h6>
               <div class="col-md-6">
-                <a href="https://ca.dinahosting.com" data-toggle="tooltip" data-placement="top" title="Dinahosting">
+                <a href="https://ca.dinahosting.com" target="_blank">
                   <img src="{{ asset('img/dinahosting.jpg') }}" class="img-fluid" alt="Dinahosting">
                 </a>
               </div>
               <div class="col-md-6">
-                <a href="http://websalpunt.cat" data-toggle="tooltip" data-placement="top" title="Webs al punt .cat">
+                <a href="http://websalpunt.cat" target="_blank">
                   <img src="{{ asset('img/puntcat.png') }}" class="img-fluid" alt="WAP.cat">
                 </a>
               </div>
